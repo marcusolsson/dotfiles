@@ -12,6 +12,8 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'SirVer/ultisnips'
 Plugin 'kien/ctrlp.vim'
+Plugin 'w0ng/vim-hybrid'
+Plugin 'edkolev/promptline.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -23,7 +25,15 @@ au FileType go nmap <leader>c <Plug>(go-coverage)
 
 syntax enable
 set background=dark
-colorscheme base16-tomorrow
+colorscheme hybrid
+let g:hybrid_use_Xresources = 1
+
+let g:promptline_preset = {
+        \'a' : [ promptline#slices#host() ],
+        \'b' : [ promptline#slices#user() ],
+        \'c' : [ promptline#slices#cwd() ],
+        \'y' : [ promptline#slices#vcs_branch() ],
+        \'warn' : [ promptline#slices#last_exit_code() ]}
 
 set number
 set hlsearch
