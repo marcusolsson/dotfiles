@@ -1,0 +1,4 @@
+export GOPATH=$HOME/Development/go
+
+export PATH=$PATH:$HOME/Development/code.google.com/go/bin
+export PATH=$PATH:$GOPATH/bin
