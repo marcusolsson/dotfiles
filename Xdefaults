@@ -30,5 +30,5 @@
 *color15: #C5C8C6
 
 URxvt*font:      xft:Sauce Code Powerline:pixelsize=14:style=Regular
-URxvt*boldFont:  xft:Sauce Code Powerline:pixelsize=14:style=Semibold
+URxvt*boldFont:  xft:Sauce Code Powerline:pixelsize=14:style=Bold
 URxvt.scrollBar: false
