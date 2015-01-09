@@ -17,6 +17,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'edkolev/promptline.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'Townk/vim-autoclose'
 
 call vundle#end()
 filetype plugin indent on
