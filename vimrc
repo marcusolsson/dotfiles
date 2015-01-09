@@ -10,6 +10,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'base16-vim'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'benmills/vim-golang-alternate'
 Plugin 'SirVer/ultisnips'
 Plugin 'kien/ctrlp.vim'
 Plugin 'w0ng/vim-hybrid'
@@ -44,8 +46,28 @@ set guifont=Sauce\ Code\ Powerline\ 10
 let g:airline_powerline_fonts = 1
 set laststatus=2
 
+nnoremap n nzz
+nnoremap j gj
+nnoremap k gk
+
+set noswapfile
+
 map <C-s> :w<kEnter>
+
+" Tab between buffers
+noremap <tab> <c-w>w
+noremap <S-tab> <c-w>W
+
+" Go to home and end using capitalized directions
+noremap H ^
+noremap L $
 
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Learn Vim!
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
