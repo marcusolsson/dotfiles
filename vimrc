@@ -35,7 +35,7 @@ colorscheme hybrid
 let g:hybrid_use_Xresources = 1
 
 " GUI stuff
-set guioptions-=T
+set guioptions=
 set guifont=Sauce\ Code\ Powerline\ 10
 
 " Configure lightline
