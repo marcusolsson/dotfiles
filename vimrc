@@ -9,8 +9,10 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'bling/vim-airline'
+Plugin 'itchyny/lightline.vim'
 Plugin 'edkolev/promptline.vim'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-eunuch'
 
 " Color scheme
 Plugin 'w0ng/vim-hybrid'
@@ -31,13 +33,22 @@ filetype plugin indent on
 syntax enable
 colorscheme hybrid
 let g:hybrid_use_Xresources = 1
-let g:airline_powerline_fonts = 1
 
 " GUI stuff
 set guioptions-=T
 set guifont=Sauce\ Code\ Powerline\ 10
 
-" For creating an airline terminal prompt
+" Configure lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"":""}',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+
+" For creating an powerline terminal prompt
 let g:promptline_preset = {
         \'a' : [ promptline#slices#host() ],
         \'b' : [ promptline#slices#user() ],
@@ -48,9 +59,8 @@ let g:promptline_preset = {
 set background=dark " Dark background
 set number " Display line numbers
 set hlsearch " Highlight search results
-set incsearch " Enable incremental search
 set noswapfile
-set laststatus=2 " Always display status line
+set noshowmode " Handled by lightline
 
 " Remaps for convenience
 nnoremap n nzz
