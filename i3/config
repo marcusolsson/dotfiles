@@ -129,9 +129,11 @@ bar {
     status_command i3status
   colors {
     separator #666666
-    background #000000
-    statusline #ffffff
-    focused_workspace #4c7899 #285577 #ffffff
+    background #1D1F21
+    statusline #C5C8C6
+    #focused_workspace #B5BD68 #8C9440 #ffffff # green
+    focused_workspace #CC6666 #A54242 #ffffff # red
+    #focused_workspace #81A2BE #5F819D #ffffff # blue
     active_workspace #333333 #5f676a #ffffff
     inactive_workspace #333333 #222222 #888888
     urgent_workspace #2f343a #900000 #ffffff
@@ -139,6 +141,15 @@ bar {
 }
 
 bindsym Control+$mod+l exec i3lock -c 000000
+
+bindsym $mod+b border toggle
+bindsym $mod+m move scratchpad
+bindsym $mod+o scratchpad show
+
+new_window 1pixel
+new_float 1pixel
+
+for_window [class="URxvt"] floating enable
 
 exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
