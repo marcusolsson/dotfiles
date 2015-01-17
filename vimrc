@@ -20,7 +20,7 @@ Plugin 'base16-vim'
 
 " Programming
 Plugin 'scrooloose/syntastic'
-Plugin 'Townk/vim-autoclose'
+Plugin 'Raimondi/delimitMate'
 Plugin 'fatih/vim-go'
 Plugin 'benmills/vim-golang-alternate'
 Plugin 'Valloric/YouCompleteMe'
@@ -36,25 +36,7 @@ let g:hybrid_use_Xresources = 1
 
 " GUI stuff
 set guioptions=
-set guifont=Sauce\ Code\ Powerline\ 10
-
-" Configure lightline
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"":""}',
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
-
-" For creating an powerline terminal prompt
-let g:promptline_preset = {
-        \'a' : [ promptline#slices#host() ],
-        \'b' : [ promptline#slices#user() ],
-        \'c' : [ promptline#slices#cwd() ],
-        \'y' : [ promptline#slices#vcs_branch() ],
-        \'warn' : [ promptline#slices#last_exit_code() ]}
+set guifont=Inconsolata\ 12
 
 set background=dark " Dark background
 set number " Display line numbers
@@ -86,6 +68,9 @@ au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 
 let g:go_fmt_command="goimports"
+
+" Disable preview window on autocomplete
+set completeopt-=preview
 
 " Recommended syntastic settings
 set statusline+=%#warningmsg#
