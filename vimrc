@@ -40,7 +40,6 @@ set guifont=Inconsolata\ 12
 
 set background=dark " Dark background
 set number " Display line numbers
-set hlsearch " Highlight search results
 set noswapfile
 set noshowmode " Handled by lightline
 
