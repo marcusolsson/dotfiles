@@ -29,6 +29,6 @@
 *color7: #707880
 *color15: #C5C8C6
 
-URxvt*font:      xft:Sauce Code Powerline:pixelsize=14:style=Regular
-URxvt*boldFont:  xft:Sauce Code Powerline:pixelsize=14:style=Bold
+URxvt*font:      xft:Inconsolata:pixelsize=16:style=Regular
+URxvt*boldFont:  xft:Inconsolata:pixelsize=16:style=Bold
 URxvt.scrollBar: false
