@@ -32,7 +32,6 @@ Plugin 'SirVer/ultisnips'
 call vundle#end()
 filetype plugin indent on
 
-"let mapleader="\<Space>"
 map <Space> <leader>
 
 nmap <leader>sh :leftabove  vnew<cr>
@@ -42,11 +41,11 @@ nmap <leader>sj :rightbelow new<cr>
 
 nmap <leader>n :NERDTreeToggle<CR>
 
+" Configure system clipboard
 nmap <leader>p "+p
 nmap <leader>P "+P
 nmap <leader>Y "+Y
 vmap <leader>y "+y
-
 
 syntax enable
 colorscheme hybrid
