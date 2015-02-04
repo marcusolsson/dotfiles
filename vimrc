@@ -19,7 +19,6 @@ Plugin 'scrooloose/nerdtree'
 
 " Color scheme
 Plugin 'w0ng/vim-hybrid'
-Plugin 'base16-vim'
 
 " Programming
 Plugin 'scrooloose/syntastic'
@@ -28,6 +27,7 @@ Plugin 'fatih/vim-go'
 Plugin 'benmills/vim-golang-alternate'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
+Plugin 'Shutnik/jshint2.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -46,6 +46,8 @@ nmap <leader>p "+p
 nmap <leader>P "+P
 nmap <leader>Y "+Y
 vmap <leader>y "+y
+
+set t_Co=256
 
 syntax enable
 colorscheme hybrid
@@ -84,10 +86,16 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 
+au FileType go au BufWritePost <buffer> execute 'GoLint' | cwindow
+
 let g:go_fmt_command="goimports"
 
 " Toggle between test and implementation
 nmap T :A<CR>
+
+" JavaScript programming
+au FileType javascript nnoremap <silent><F1> ::%!js-beautify -j -q -B -f -<CR>
+au FileType javascript nnoremap <silent><F2> :JSHint<CR>
 
 " Disable preview window on autocomplete
 set completeopt-=preview
