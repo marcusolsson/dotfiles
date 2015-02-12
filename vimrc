@@ -93,6 +93,10 @@ let g:go_fmt_command="goimports"
 " Toggle between test and implementation
 nmap T :A<CR>
 
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+
 " JavaScript programming
 au FileType javascript nnoremap <silent><F1> ::%!js-beautify -j -q -B -f -<CR>
 au FileType javascript nnoremap <silent><F2> :JSHint<CR>
