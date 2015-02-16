@@ -9,9 +9,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'itchyny/lightline.vim'
-Plugin 'edkolev/promptline.vim'
-Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-markdown'
 Plugin 'junegunn/goyo.vim'
@@ -32,20 +29,12 @@ Plugin 'Shutnik/jshint2.vim'
 call vundle#end()
 filetype plugin indent on
 
-map <Space> <leader>
-
-nmap <leader>sh :leftabove  vnew<cr>
-nmap <leader>sl :rightbelow vnew<cr>
-nmap <leader>sk :leftabove  new<cr>
-nmap <leader>sj :rightbelow new<cr>
+let mapleader=","
 
 nmap <leader>n :NERDTreeToggle<CR>
 
-" Configure system clipboard
-nmap <leader>p "+p
-nmap <leader>P "+P
-nmap <leader>Y "+Y
-vmap <leader>y "+y
+" Switch between last two buffers
+nnoremap <leader><leader> <C-^>
 
 set t_Co=256
 
@@ -53,23 +42,23 @@ syntax enable
 colorscheme hybrid
 let g:hybrid_use_Xresources = 1
 
-" GUI stuff
-set guioptions=
-set guifont=Inconsolata\ 12
-
 set background=dark " Dark background
 set number " Display line numbers
 set noswapfile
-set noshowmode " Handled by lightline
 set hidden " Hide buffers
+set incsearch
+set nowrap
+set ignorecase
+set smartcase
+set cursorline
+set lazyredraw
+set ttyfast
+set scrolloff=5
 
-" Remaps for convenience
-nnoremap n nzz
-nnoremap j gj
-nnoremap k gk
-
-map <C-s> :w<kEnter>
-
+" Disable cursor line in insert mode
+au InsertEnter * set nocursorline
+au InsertLeave * set cursorline nopaste
+ 
 " Go to home and end using capitalized directions
 noremap H ^
 noremap L $
@@ -103,16 +92,6 @@ au FileType javascript nnoremap <silent><F2> :JSHint<CR>
 
 " Disable preview window on autocomplete
 set completeopt-=preview
-
-" Recommended syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " Snippets
 let g:UltiSnipsExpandTrigger="<c-j>"
