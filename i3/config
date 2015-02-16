@@ -134,8 +134,6 @@ bindsym $mod+o scratchpad show
 new_window 1pixel
 new_float 1pixel
 
-for_window [class="URxvt"] floating enable
-
 exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
 
