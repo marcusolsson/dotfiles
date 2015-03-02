@@ -1,0 +1,10 @@
+out_to_x no
+own_window no
+out_to_console yes
+
+TEXT
+[{ "full_text" : " Uptime $uptime_short " , "color" : "\#ffffff" },
+{ "full_text" : " RAM ${mem} " , "color" : ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif} },
+{ "full_text" : " ${cpubar 7,90} " , "color" : "\#ffffff" },
+{ "full_text" : " I/O ${diskio /dev/sda} " , "color" : "\#ffffff" },
+{ "full_text" : " $time " , "color" : "\#ffffff" }],
