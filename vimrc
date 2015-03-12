@@ -18,7 +18,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'w0ng/vim-hybrid'
 
 " Programming
-Plugin 'scrooloose/syntastic'
 Plugin 'Raimondi/delimitMate'
 Plugin 'fatih/vim-go'
 Plugin 'benmills/vim-golang-alternate'
@@ -50,15 +49,10 @@ set incsearch
 set nowrap
 set ignorecase
 set smartcase
-set cursorline
 set lazyredraw
 set ttyfast
 set scrolloff=5
 
-" Disable cursor line in insert mode
-au InsertEnter * set nocursorline
-au InsertLeave * set cursorline nopaste
- 
 " Go to home and end using capitalized directions
 noremap H ^
 noremap L $
