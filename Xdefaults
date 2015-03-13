@@ -1,9 +1,19 @@
+! Xft
+Xft*dpi:       96
+Xft*antialias: true
+Xft*rgba:      rgb
+Xft*hinting:   true
+Xft*hintstyle: hintslight
+
 URxvt*cursorBlink: true
-URxvt*scrollBar: false
+URxvt*scrollBar:   false
+
+URxvt*font:      xft:Inconsolata:pixelsize=16:style=Regular
+URxvt*boldFont:  xft:Inconsolata:pixelsize=16:style=Bold
 
 ! Hybrid Terminal Colours. Uses the palette from Tomorrow-Night:
 ! https://github.com/chriskempson/tomorrow-theme/blob/master/vim/colors/Tomorrow-Night.vim
- 
+
 URxvt*background: #1D1F21
 URxvt*foreground: #C5C8C6
 ! black
@@ -31,6 +41,4 @@ URxvt*color14: #8ABEB7
 URxvt*color7: #707880
 URxvt*color15: #C5C8C6
 
-URxvt*font:      xft:Inconsolata:pixelsize=16:style=Regular
-URxvt*boldFont:  xft:Inconsolata:pixelsize=16:style=Bold
 
