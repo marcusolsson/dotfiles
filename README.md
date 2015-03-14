@@ -1,4 +1,4 @@
-configs
-=======
+dotfiles
+========
 
 My config files
