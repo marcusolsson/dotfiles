@@ -93,7 +93,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+u exec /home/marcus/configs/bin/toggle-xkbmap.sh
+bindsym $mod+u exec /home/marcus/dotfiles/bin/toggle-xkbmap.sh
 
 # media keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 1+"
@@ -140,6 +140,7 @@ new_float 1pixel
 
 exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id urxvtd -q -o -f
 
 # Window colors
 # class			border  backgr. text    indicator
