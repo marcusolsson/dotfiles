@@ -52,6 +52,11 @@ set smartcase
 set lazyredraw
 set ttyfast
 set scrolloff=5
+set ruler
+set autoread
+
+set ttimeout
+set ttimeoutlen=100
 
 " Go to home and end using capitalized directions
 noremap H ^
