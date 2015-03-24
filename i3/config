@@ -6,14 +6,8 @@ font pango:Terminus 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec urxvtc
-
 # kill focused window
 bindsym $mod+Shift+q kill
-
-# start dmenu
-bindsym $mod+p exec dmenu_run
 
 # change focus
 bindsym $mod+h focus left
@@ -73,8 +67,8 @@ bindsym $mod+0 workspace number 10
 
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+1 move container to workspace number 1 www
+bindsym $mod+Shift+2 move container to workspace number 2 vim
 bindsym $mod+Shift+3 move container to workspace number 3
 bindsym $mod+Shift+4 move container to workspace number 4
 bindsym $mod+Shift+5 move container to workspace number 5
@@ -89,18 +83,23 @@ assign [class="Google-chrome"] 1 www
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+#
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym $mod+u exec /home/marcus/dotfiles/bin/toggle-xkbmap.sh
 bindsym $mod+n exec /home/marcus/dotfiles/bin/rename_workspace.sh
+bindsym $mod+Return exec urxvtc
+bindsym $mod+p exec dmenu_run
+bindsym $mod+Control+l exec "gnome-screensaver-command --lock"
 
 # media keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 1+"
 bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 1-"
 bindsym XF86AudioMute        exec --no-startup-id "amixer set Master toggle"
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -114,11 +113,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-
-bindsym Control+$mod+l exec "gnome-screensaver-command --lock"
 
 bindsym $mod+b border toggle
 bindsym $mod+m move scratchpad
@@ -141,7 +135,6 @@ client.urgent		#2f343a #900000 #ffffff #900000
 # Status bar colors
 bar {
   position top
-  status_command /home/marcus/configs/i3/conkyscript.sh
   colors {
     separator #666666
     background #1D1F21
