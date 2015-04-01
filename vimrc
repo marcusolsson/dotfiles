@@ -45,6 +45,7 @@ let g:hybrid_use_Xresources = 1
 set background=dark " Dark background
 set number " Display line numbers
 set noswapfile
+set noshowmode
 set hidden " Hide buffers
 set incsearch
 set nowrap
