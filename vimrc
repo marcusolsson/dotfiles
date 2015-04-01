@@ -60,6 +60,8 @@ set autoread
 set ttimeout
 set ttimeoutlen=100
 
+autocmd InsertLeave * update
+
 " Go to home and end using capitalized directions
 noremap H ^
 noremap L $
