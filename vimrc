@@ -90,7 +90,7 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 
 " JavaScript programming
-au FileType javascript nnoremap <silent><F1> ::%!js-beautify -j -q -B -f -<CR>
+au FileType javascript nnoremap <silent><F1> :%!js-beautify -j -q -B -f -<CR>
 au FileType javascript nnoremap <silent><F2> :JSHint<CR>
 
 " Disable preview window on autocomplete
