@@ -24,6 +24,7 @@ Plugin 'benmills/vim-golang-alternate'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'Shutnik/jshint2.vim'
+Plugin 'mileszs/ack.vim'
 
 call vundle#end()
 filetype plugin indent on
