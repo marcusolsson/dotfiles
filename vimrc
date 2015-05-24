@@ -24,6 +24,7 @@ Plugin 'benmills/vim-golang-alternate'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'Shutnik/jshint2.vim'
+Plugin 'rust-lang/rust.vim'
 Plugin 'mileszs/ack.vim'
 
 call vundle#end()
@@ -90,7 +91,11 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 
 " JavaScript programming
+<<<<<<< HEAD
 au FileType javascript nnoremap <silent><F1> :%!js-beautify -j -q -B -f -<CR>
+=======
+au FileType javascript nnoremap <silent><F1> ::%!js-beautify -j -f -<CR>
+>>>>>>> Add rust and ack plugins
 au FileType javascript nnoremap <silent><F2> :JSHint<CR>
 
 " Disable preview window on autocomplete
