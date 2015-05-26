@@ -89,7 +89,7 @@ bindsym $mod+Shift+r restart
 
 bindsym $mod+u exec /home/marcus/dotfiles/bin/toggle-xkbmap.sh
 bindsym $mod+n exec /home/marcus/dotfiles/bin/rename_workspace.sh
-bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec /home/marcus/dotfiles/bin/i3-shell.sh
 bindsym $mod+p exec dmenu_run
 bindsym $mod+Control+l exec "gnome-screensaver-command --lock"
 
