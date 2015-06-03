@@ -8,6 +8,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'int3/vim-extradite'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-markdown'
