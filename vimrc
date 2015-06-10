@@ -57,6 +57,7 @@ set ttyfast
 set scrolloff=5
 set ruler
 set autoread
+set fillchars=""
 
 set ttimeout
 set ttimeoutlen=100
