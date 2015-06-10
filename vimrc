@@ -25,7 +25,6 @@ Plugin 'Raimondi/delimitMate'
 " Programming
 Plugin 'fatih/vim-go'
 Plugin 'benmills/vim-golang-alternate'
-Plugin 'Shutnik/jshint2.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -90,10 +89,6 @@ nmap T :A<CR>
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
-
-" JavaScript programming
-au FileType javascript nnoremap <silent><F1> :%!js-beautify -j -f -<CR>
-au FileType javascript nnoremap <silent><F2> :JSHint<CR>
 
 " Disable preview window on autocomplete
 set completeopt-=preview
