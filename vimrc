@@ -6,28 +6,26 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
+" Basic stuff
 Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-markdown'
+Plugin 'mileszs/ack.vim'
+Plugin 'w0ng/vim-hybrid'
+
+" Development
 Plugin 'tpope/vim-fugitive'
 Plugin 'int3/vim-extradite'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-markdown'
-Plugin 'junegunn/goyo.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ervandew/supertab'
-
-" Color scheme
-Plugin 'w0ng/vim-hybrid'
-
-" Programming
-Plugin 'Raimondi/delimitMate'
-Plugin 'fatih/vim-go'
-Plugin 'benmills/vim-golang-alternate'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
+Plugin 'ervandew/supertab'
+Plugin 'Raimondi/delimitMate'
+
+" Programming
+Plugin 'fatih/vim-go'
+Plugin 'benmills/vim-golang-alternate'
 Plugin 'Shutnik/jshint2.vim'
-Plugin 'rust-lang/rust.vim'
-Plugin 'mileszs/ack.vim'
 
 call vundle#end()
 filetype plugin indent on
