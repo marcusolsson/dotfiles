@@ -152,9 +152,9 @@ set $background $base00
 
 # Window colors
 # class			border  backgr. text    indicator
-client.focused 		$base08 $base08 $base07 $base0D
-client.focused_inactive	$base02 $base01 $base03 $base02
-client.unfocused	$base01 $base00 $base03 $base01 
+client.focused 		$base00 $base08 $base07 $base0D
+client.focused_inactive	$base00 $base00 $base03 $base02
+client.unfocused	$base00 $base00 $base03 $base01 
 #client.urgent		
 
 # Status bar colors
@@ -168,8 +168,8 @@ bar {
 
     # class		border  backgr. text
     focused_workspace	$base08 $base08 $base07
-    active_workspace	$base02 $base01 $base07 
-    inactive_workspace  $base01 $base00 $base03
+    active_workspace	$base00 $base00 $base03 
+    inactive_workspace  $base00 $base00 $base03
     #urgent_workspace
   }
 }
