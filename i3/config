@@ -53,9 +53,12 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+d focus child
 
+set $ws1 www
+set $ws2 vim
+
 # switch to workspace
-bindsym $mod+1 workspace number 1 www
-bindsym $mod+2 workspace number 2 vim
+bindsym $mod+1 workspace number 1 $ws1
+bindsym $mod+2 workspace number 2 $ws2
 bindsym $mod+3 workspace number 3
 bindsym $mod+4 workspace number 4
 bindsym $mod+5 workspace number 5
@@ -67,8 +70,8 @@ bindsym $mod+0 workspace number 10
 
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1 www
-bindsym $mod+Shift+2 move container to workspace number 2 vim
+bindsym $mod+Shift+1 move container to workspace number 1 $ws1
+bindsym $mod+Shift+2 move container to workspace number 2 $ws2
 bindsym $mod+Shift+3 move container to workspace number 3
 bindsym $mod+Shift+4 move container to workspace number 4
 bindsym $mod+Shift+5 move container to workspace number 5
@@ -79,7 +82,7 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
 # assign applications to workspaces
-assign [class="Google-chrome"] 1 www
+assign [class="Google-chrome"] 1 $ws1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -125,25 +128,48 @@ exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id urxvtd -q -o -f
 
+# Color palette from base16 Tomorrow Night
+
+set $base00 #1d1f21
+set $base01 #282a2e
+set $base02 #373b41
+set $base03 #969896
+set $base04 #b4b7b4
+set $base05 #c5c8c6
+set $base06 #e0e0e0
+set $base07 #ffffff
+set $base08 #cc6666
+set $base09 #de935f
+set $base0A #f0c674
+set $base0B #b5bd68
+set $base0C #8abeb7
+set $base0D #81a2be
+set $base0E #b294bb
+set $base0F #a3685a
+
+set $foreground $base07
+set $background $base00
+
 # Window colors
 # class			border  backgr. text    indicator
-client.focused 		#CC6666 #A54242 #ffffff #2e9ef4
-client.focused_inactive	#333333 #1D1F21 #ffffff #484e50
-client.unfocused	#333333 #222222 #888888 #292d2e
-client.urgent		#2f343a #900000 #ffffff #900000
+client.focused 		$base08 $base08 $base07 $base0D
+client.focused_inactive	$base02 $base01 $base03 $base02
+client.unfocused	$base01 $base00 $base03 $base01 
+#client.urgent		
 
 # Status bar colors
 bar {
+  status_command i3status -c ~/.i3/i3status.conf
   position top
   colors {
-    separator #666666
-    background #1D1F21
-    statusline #C5C8C6
+    separator $base01
+    background $base00
+    statusline $base03
 
-    # class		border backgr. text
-    focused_workspace	#CC6666 #A54242 #ffffff # red
-    active_workspace	#333333 #5f676a #ffffff
-    inactive_workspace	#333333 #222222 #888888
-    urgent_workspace	#2f343a #900000 #ffffff
+    # class		border  backgr. text
+    focused_workspace	$base08 $base08 $base07
+    active_workspace	$base02 $base01 $base07 
+    inactive_workspace  $base01 $base00 $base03
+    #urgent_workspace
   }
 }
