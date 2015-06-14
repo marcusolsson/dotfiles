@@ -35,15 +35,8 @@ Plugin 'mephux/vim-jsfmt'
 call vundle#end()
 filetype plugin indent on
 
-let mapleader=","
-
-nmap <leader>n :NERDTreeToggle<CR>
-
-" Switch between last two buffers
-nnoremap <leader><leader> <C-^>
-
+" Colors
 set t_Co=256
-
 syntax enable
 colorscheme hybrid
 let g:hybrid_use_Xresources = 1
@@ -61,11 +54,19 @@ set scrolloff=5  " Keep lines above and below the cursor when scrolling.
 set autowrite    " Save on buffer switch.
 set fillchars="" " Remove the vertical split separator.
 
-let loaded_matchparen=1
-
-" These removes Esc delay
+" These remove Esc delay
 set ttimeout
 set ttimeoutlen=100
+"
+" Disable preview window on autocomplete
+set completeopt-=preview
+
+let g:netrw_banner=0 
+let loaded_matchparen=1
+let mapleader=","
+
+" Switch between last two buffers
+nnoremap <leader><leader> <C-^>
 
 " Save buffer when leaving insert mode.
 autocmd InsertLeave * update
@@ -96,9 +97,6 @@ nmap T :A<CR>
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
-
-" Disable preview window on autocomplete
-set completeopt-=preview
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
