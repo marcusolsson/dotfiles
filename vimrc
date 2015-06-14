@@ -56,11 +56,12 @@ set incsearch    " Enable incremental search
 set nowrap       " Do not wrap long lines.
 set ignorecase   " Ignore case when searching.
 set smartcase    " Only ignore case when search string is lowercase.
-set lazyredraw   " Only redraw when typing.
 set ttyfast      " Send more characters to the screen for redraw.
 set scrolloff=5  " Keep lines above and below the cursor when scrolling.
 set autowrite    " Save on buffer switch.
 set fillchars="" " Remove the vertical split separator.
+
+let loaded_matchparen=1
 
 " These removes Esc delay
 set ttimeout

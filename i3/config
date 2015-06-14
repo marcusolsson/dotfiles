@@ -126,7 +126,7 @@ new_float 1pixel
 
 exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id urxvtd -q -o -f
+#exec --no-startup-id urxvtd -q -o -f
 
 # Color palette from base16 Tomorrow Night
 
