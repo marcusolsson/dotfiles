@@ -49,24 +49,24 @@ colorscheme hybrid
 let g:hybrid_use_Xresources = 1
 
 set background=dark " Dark background
-set number " Display line numbers
-set noswapfile
-set noshowmode
-set hidden " Hide buffers
-set incsearch
-set nowrap
-set ignorecase
-set smartcase
-set lazyredraw
-set ttyfast
-set scrolloff=5
-set ruler
-set autoread
-set fillchars=""
+set number       " Display line numbers
+set noswapfile   " Disable swap files.
+set hidden       " Hide buffers
+set incsearch    " Enable incremental search 
+set nowrap       " Do not wrap long lines.
+set ignorecase   " Ignore case when searching.
+set smartcase    " Only ignore case when search string is lowercase.
+set lazyredraw   " Only redraw when typing.
+set ttyfast      " Send more characters to the screen for redraw.
+set scrolloff=5  " Keep lines above and below the cursor when scrolling.
+set autowrite    " Save on buffer switch.
+set fillchars="" " Remove the vertical split separator.
 
+" These removes Esc delay
 set ttimeout
 set ttimeoutlen=100
 
+" Save buffer when leaving insert mode.
 autocmd InsertLeave * update
 
 " Go to home and end using capitalized directions
