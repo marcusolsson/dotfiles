@@ -54,6 +54,10 @@ set scrolloff=5  " Keep lines above and below the cursor when scrolling.
 set autowrite    " Save on buffer switch.
 set fillchars="" " Remove the vertical split separator.
 
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
 " These remove Esc delay
 set ttimeout
 set ttimeoutlen=100
@@ -113,3 +117,8 @@ let g:syntastic_javascript_checkers=['jsxhint']
 let g:syntastic_auto_loc_list = 1
 let g:js_fmt_fail_silently = 1
 let g:js_fmt_autosave = 1
+
+" Change cursor shape in insert mode
+au InsertEnter * silent execute "!gnome-terminal-cursor-shape.sh ibeam"
+au InsertLeave * silent execute "!gnome-terminal-cursor-shape.sh block"
+au VimLeave * silent execute "!gnome-terminal-cursor-shape.sh block"
