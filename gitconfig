@@ -29,3 +29,16 @@
 
 [url "https://bitbucket.org/"]
 	insteadOf = bb:
+
+[alias]
+	st = status -s
+	ci = commit
+	co = checkout
+	up = pull --rebase --prune
+	br = checkout -b
+	ls = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative 
+	ms = merge --squash
+	ri = rebase --interactive --autosquash
+	fix = !sh -c 'git commit -am \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+	squash = !sh -c 'git commit -am \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+	wipe = reset HEAD --hard
