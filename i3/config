@@ -1,10 +1,6 @@
 set $mod Mod4
 
-# Set font
 font pango:Terminus 8
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -21,10 +17,24 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# workspace navigation
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
-bindsym $mod+x workspace back_and_forth
+# cycle windows
+bindsym $mod+Tab focus right
+bindsym $mod+Shift+Tab focus left
+
+focus_follows_mouse no
+force_focus_wrapping yes
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+new_window 1pixel
+new_float 1pixel
+
+bindsym $mod+b border toggle
+
+# cycle workspaces
+bindsym $mod+Shift+Left workspace prev_on_output
+bindsym $mod+Shift+Right workspace next_on_output
 
 # split in horizontal orientation
 bindsym $mod+c split h
@@ -34,10 +44,9 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
-bindsym $mod+g fullscreen global
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+bindsym $mod+s layout toggle split
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout default
 
@@ -53,18 +62,13 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+d focus child
 
-set $ws1 www
-set $ws2 social
-set $ws3 vim
-set $ws4 media
-set $ws5 work
 
 # switch to workspace
-bindsym $mod+1 workspace 1 $ws1
-bindsym $mod+2 workspace 2 $ws2
-bindsym $mod+3 workspace 3 $ws3
-bindsym $mod+4 workspace 4 $ws4
-bindsym $mod+5 workspace 5 $ws5
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
@@ -72,11 +76,11 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1 $ws1
-bindsym $mod+Shift+2 move container to workspace number 2 $ws2
-bindsym $mod+Shift+3 move container to workspace number 3 $ws3
-bindsym $mod+Shift+4 move container to workspace number 4 $ws4
-bindsym $mod+Shift+5 move container to workspace number 5 $ws5
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
 bindsym $mod+Shift+6 move container to workspace number 6
 bindsym $mod+Shift+7 move container to workspace number 7
 bindsym $mod+Shift+8 move container to workspace number 8
@@ -85,18 +89,19 @@ bindsym $mod+Shift+0 move container to workspace number 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-#
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
 bindsym $mod+u exec /home/marcus/dotfiles/bin/toggle-xkbmap.sh
 bindsym $mod+n exec /home/marcus/dotfiles/bin/rename_workspace.sh
+bindsym $mod+Return exec /home/marcus/dotfiles/bin/i3-shell.sh
+
 bindsym $mod+p exec i3-dmenu-desktop
+
 bindsym $mod+Shift+p exec --no-startup-id "chromium --profile-directory='Default'"
 bindsym $mod+Shift+w exec --no-startup-id "chromium --profile-directory='Profile 1'"
 bindsym $mod+Control+a exec --no-startup-id "chromium --show-app-list"
-bindsym $mod+Control+l exec "gnome-screensaver-command --lock"
-bindsym $mod+Return exec /home/marcus/dotfiles/bin/i3-shell.sh
 
 # media keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 1+"
@@ -105,9 +110,6 @@ bindsym XF86AudioMute        exec --no-startup-id "amixer set Master toggle"
 
 for_window [window_role="bubble"] floating enable; border none
 for_window [class="Google-chrome"] border none
-
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -122,19 +124,33 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+b border toggle
-bindsym $mod+m move scratchpad
-bindsym $mod+o scratchpad show
+set $mode_system system (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
-new_window 1pixel
-new_float 1pixel
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
+bindsym $mod+Shift+e mode "$mode_system"
+
+# scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# startup
 exec --no-startup-id nm-applet
+exec --no-startup-id volumeicon
+exec --no-startup-id udiskie --tray
 exec --no-startup-id nitrogen --restore
-#exec --no-startup-id urxvtd -q -o -f
+exec --no-startup-id xcape -e 'Control_L=Escape'
 
 # Color palette from base16 Tomorrow Night
-
 set $base00 #1d1f21
 set $base01 #282a2e
 set $base02 #373b41
