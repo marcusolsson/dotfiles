@@ -9,5 +9,8 @@ export PATH=$PATH:$GOPATH/bin
 
 export PATH=$PATH:$HOME/dotfiles/bin
 
+export VISUAL=vim
+export EDITOR=vim
+
 setxkbmap -option ctrl:nocaps
 xset r rate 200 30
