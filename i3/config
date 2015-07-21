@@ -162,7 +162,7 @@ client.unfocused	$base00 $base00 $base03 $base01
 
 # Status bar colors
 bar {
-  status_command i3status -c ~/.i3/i3status.conf
+  status_command i3status
   position top
   colors {
     separator $base01
