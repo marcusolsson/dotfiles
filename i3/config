@@ -62,7 +62,6 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+d focus child
 
-
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -179,11 +178,11 @@ set $color7 #707880
 set $color15 #C5C8C6
 
 # Window colors
-# class					border   backgr. text        indicator
-client.focused			$color10 $color2 #ffffff     $color10
-client.focused_inactive	$color8  $color0 $color7     $color8
-client.unfocused		$color8  $color0 $color7     $color8 
-client.urgent			$color9  $color1 $foreground $color9
+# class                 border   backgr. text        indicator
+client.focused          $color10 $color2 #ffffff     $color10
+client.focused_inactive $color8  $color0 $color7     $color8
+client.unfocused        $color8  $color0 $color7     $color8 
+client.urgent           $color9  $color1 $foreground $color9
 
 # Status bar colors
 bar {
@@ -194,10 +193,10 @@ bar {
     background $background
     statusline $color7
 
-    # class		        border   backgr. text
-    focused_workspace	$color10 $color2 #ffffff
-    active_workspace	$color8  $color0 $color7
-    inactive_workspace  $color8	 $color0 $color7
-	urgent_workspace	$color9  $color1 $foreground
+    # class             border   backgr. text
+    focused_workspace   $color10 $color2 #ffffff
+    active_workspace    $color8  $color0 $color7
+    inactive_workspace  $color8  $color0 $color7
+    urgent_workspace    $color9  $color1 $foreground
   }
 }
