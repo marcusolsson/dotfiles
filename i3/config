@@ -1,6 +1,6 @@
 set $mod Mod4
 
-font pango:Inconsolata 12
+font pango:Terminus 12
 
 # kill focused window
 bindsym $mod+Shift+q kill
