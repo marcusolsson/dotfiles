@@ -1,6 +1,6 @@
 set $mod Mod4
 
-font pango:Terminus 8
+font pango:Inconsolata 12
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -100,15 +100,11 @@ bindsym $mod+p exec i3-dmenu-desktop
 
 bindsym $mod+Shift+p exec --no-startup-id "chromium --profile-directory='Default'"
 bindsym $mod+Shift+w exec --no-startup-id "chromium --profile-directory='Profile 1'"
-bindsym $mod+Control+a exec --no-startup-id "chromium --show-app-list"
 
 # media keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 1+"
 bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 1-"
 bindsym XF86AudioMute        exec --no-startup-id "amixer set Master toggle"
-
-for_window [window_role="bubble"] floating enable; border none
-for_window [class="Google-chrome"] border none
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
