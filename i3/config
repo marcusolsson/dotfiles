@@ -142,13 +142,6 @@ bindsym $mod+Shift+e mode "$mode_system"
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-# startup
-exec --no-startup-id nm-applet
-exec --no-startup-id volumeicon
-exec --no-startup-id udiskie --tray
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id xcape -e 'Control_L=Escape'
-
 # Color palette from base16 Tomorrow Night
 set $background #1D1F21
 set $foreground #C5C8C6
