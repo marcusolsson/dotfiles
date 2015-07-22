@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export DOTFILES=$HOME/dotfiles
+export PATH=$DOTFILES/bin:$PATH
+
 setxkbmap -option ctrl:nocaps
 xset r rate 200 30
 

@@ -1,5 +1,4 @@
-export DOTFILES=~/dotfiles
-export PATH=$DOTFILES/bin:$PATH
+#!/bin/bash
 
 export VISUAL=vim
 export EDITOR=vim
