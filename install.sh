@@ -6,11 +6,10 @@ sudo apt-get -qq upgrade
 packages=(
 	i3 nitrogen
 	volumeicon-alsa python3-udiskie
-	vim git
-	gnome-terminal 
-	ranger 
-	gpicview
 	lxappearance gtk-chtheme qt4-qtconfig
+	ranger gpicview
+	vim git gnome-terminal 
+	htop curl jq
 )
 
 sudo apt-get install -qq ${packages[*]}
