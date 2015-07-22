@@ -175,7 +175,7 @@ client.urgent           $color9  $color1 $foreground $color9
 
 # Status bar colors
 bar {
-  status_command i3status
+  status_command i3blocks
   position top
   colors {
     separator $color7
