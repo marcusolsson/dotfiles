@@ -106,6 +106,9 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 1+"
 bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 1-"
 bindsym XF86AudioMute        exec --no-startup-id "amixer set Master toggle"
 
+bindsym XF86MonBrightnessUp   exec xbacklight -inc 10 
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         bindsym h resize shrink width 5 px or 5 ppt
