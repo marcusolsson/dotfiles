@@ -6,7 +6,7 @@ export EDITOR=vim
 alias ls='ls --color=auto'
 alias ll='ls -l'
 
-source $DOTFILES/prompt.sh
+source $HOME/.bash_prompt
 
 # Go
 export GOROOT=$HOME/go
