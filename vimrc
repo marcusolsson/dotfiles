@@ -21,7 +21,6 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'ervandew/supertab'
 Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/syntastic'
 
 " Programming
 Plugin 'fatih/vim-go'
@@ -109,7 +108,5 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Javascript
-let g:syntastic_javascript_checkers=['jsxhint']
-let g:syntastic_auto_loc_list = 1
 let g:js_fmt_fail_silently = 1
 let g:js_fmt_autosave = 1
