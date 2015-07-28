@@ -12,3 +12,5 @@ udiskie --tray &
 
 nitrogen --restore
 xcape -e 'Control_L=Escape'
+
+urxvtd -q -o -f
