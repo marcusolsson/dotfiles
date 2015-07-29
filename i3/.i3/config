@@ -92,11 +92,10 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-bindsym $mod+u exec /home/marcus/dotfiles/bin/toggle-xkbmap.sh
-bindsym $mod+n exec /home/marcus/dotfiles/bin/rename_workspace.sh
-bindsym $mod+Return exec /home/marcus/dotfiles/bin/i3-shell.sh
+bindsym $mod+n exec rename_workspace.sh
+bindsym $mod+Return exec i3-shell.sh
 
-bindsym $mod+p exec i3-dmenu-desktop
+bindsym $mod+p exec dmenu_run
 
 bindsym $mod+Shift+p exec --no-startup-id "chromium --profile-directory='Default'"
 bindsym $mod+Shift+w exec --no-startup-id "chromium --profile-directory='Profile 1'"
