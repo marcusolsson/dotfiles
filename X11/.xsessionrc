@@ -13,3 +13,5 @@ nitrogen --restore
 xcape -e 'Control_L=Escape'
 
 urxvtd -q -o -f
+
+external_monitor.sh

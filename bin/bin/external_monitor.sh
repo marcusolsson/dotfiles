@@ -1,7 +1,7 @@
 #!/bin/sh
 
-EXTERNAL=`xrandr | grep "HDMI1"`
-LAPTOP=`xrandr | grep "eDP1"`
+EXTERNAL=`xrandr | grep "HDMI1 connected"`
+LAPTOP=`xrandr | grep "eDP1 connected"`
 
 if [ ! -z "$EXTERNAL" ]; then
 	if [ ! -z "$LAPTOP" ]; then
@@ -12,6 +12,8 @@ if [ ! -z "$EXTERNAL" ]; then
 		xrandr --addmode HDMI1 2560x1440_30.00
 		xrandr --output HDMI1 --mode 2560x1440_30.00
 	fi
+else
+	xrandr --output eDP1 --auto
 fi
 
 nitrogen --restore
