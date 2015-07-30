@@ -15,5 +15,3 @@ if [ ! -z "$EXTERNAL" ]; then
 else
 	xrandr --output eDP1 --auto
 fi
-
-nitrogen --restore
