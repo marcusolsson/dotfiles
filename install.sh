@@ -20,12 +20,16 @@ stows=(bash bin git i3 urxvt vim wallpapers X11)
 
 stow -R ${stows[*]}
 
+# i3blocks
+sudo apt-get install -y ruby-ronn
+git clone git://github.com/vivien/i3blocks
+pushd i3blocks; sudo make install; popd;
+rm -rf i3blocks
+
 read -r -p "Install vim? [y/N] " response
 response=${response,,}
 if [[ $response =~ ^(yes|y)$ ]]; then
 	echo "installing vim ..."
-
-	stow vim
 
 	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	vim +PluginInstall +qall
