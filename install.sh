@@ -4,10 +4,10 @@ sudo apt-get -qq update
 sudo apt-get -qq -y upgrade
 
 packages=(
-	i3 
+	i3 lightdm
 	lxappearance gtk-chtheme qt4-qtconfig
 	fonts-inconsolata fonts-roboto
-	volumeicon-alsa python3-udiskie
+	volumeicon-alsa
 	stow ranger gpicview nitrogen
 	vim git rxvt-unicode htop curl jq
 )
@@ -29,3 +29,26 @@ if [[ $response =~ ^(yes|y)$ ]]; then
 else
 	echo "skipped vim"
 fi
+
+read -r -p "Install golang? [y/N] " response
+response=${response,,}
+if [[ $response =~ ^(yes|y)$ ]]; then
+	wget https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz
+	tar xzf go1.4.2.linux-amd64.tar.gz
+	rm go1.4.2.linux-amd64.tar.gz
+	
+	if [ -d "$HOME/go" ]; then
+		read -r -p "$HOME/go already exists, are you sure you want to overwrite it? [y/N] " response
+		response=${response,,}
+		if [[ $response =~ ^(yes|y)$ ]]; then
+			rm -rf $HOME/go
+		fi
+
+		mv go $HOME/
+	else
+		echo "aborting golang install"
+	fi
+else
+	echo "skipped golang"
+fi
+
