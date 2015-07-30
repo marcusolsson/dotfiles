@@ -9,15 +9,23 @@ packages=(
 	fonts-inconsolata fonts-roboto
 	volumeicon-alsa
 	stow ranger gpicview nitrogen
-	vim git rxvt-unicode htop curl jq
+	vim vim-gtk git rxvt-unicode htop curl jq
 )
 
 sudo apt-get install -y ${packages[*]}
+
+rm -rf $HOME/.bashrc
+
+stows=(bash bin git i3 urxvt vim wallpapers X11)
+
+stow -R ${stows[*]}
 
 read -r -p "Install vim? [y/N] " response
 response=${response,,}
 if [[ $response =~ ^(yes|y)$ ]]; then
 	echo "installing vim ..."
+
+	stow vim
 
 	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	vim +PluginInstall +qall
@@ -42,12 +50,14 @@ if [[ $response =~ ^(yes|y)$ ]]; then
 		response=${response,,}
 		if [[ $response =~ ^(yes|y)$ ]]; then
 			rm -rf $HOME/go
+			mv go $HOME/
+		else 
+			echo "aborting golang install"
 		fi
-
-		mv go $HOME/
 	else
-		echo "aborting golang install"
+		mv go $HOME/
 	fi
+
 else
 	echo "skipped golang"
 fi
