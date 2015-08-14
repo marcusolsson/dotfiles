@@ -110,3 +110,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " Javascript
 let g:js_fmt_fail_silently = 1
 let g:js_fmt_autosave = 1
+
+" The default highlight colors on debian are difficult to see.
+hi SpellBad cterm=underline ctermfg=15 ctermbg=1
+hi Error ctermbg=1
+hi Search ctermfg=8
