@@ -17,3 +17,6 @@ export PATH=$PATH:$GOPATH/bin
 if [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
 fi
+
+# added by travis gem
+[ -f /home/marcus/.travis/travis.sh ] && source /home/marcus/.travis/travis.sh
