@@ -7,6 +7,7 @@ Xft*hintstyle: hintfull
 
 URxvt*cursorBlink: true
 URxvt*scrollBar:   false
+URxvt*saveLines:   1000000
 
 URxvt.perl-ext-common: font-size
 URxvt.keysym.C-Up:     perl:font-size:increase
