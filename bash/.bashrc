@@ -3,6 +3,8 @@
 export VISUAL=vim
 export EDITOR=vim
 
+export HISTCONTROL=ignoredups
+
 alias ls='ls --color=auto'
 alias ll='ls -l'
 
