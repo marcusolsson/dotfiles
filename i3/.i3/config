@@ -30,6 +30,8 @@ floating_modifier $mod
 new_window 1pixel
 new_float 1pixel
 
+hide_edge_borders both
+
 bindsym $mod+b border toggle
 
 # cycle workspaces
