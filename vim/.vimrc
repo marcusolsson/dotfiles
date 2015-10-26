@@ -12,6 +12,14 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-markdown'
 Plugin 'mileszs/ack.vim'
 Plugin 'w0ng/vim-hybrid'
+Plugin 'tpope/vim-commentary'
+Plugin 'takac/vim-hardtime'
+
+" Writing
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
+Plugin 'reedes/vim-pencil'
+Plugin 'reedes/vim-wordy'
 
 " Development
 Plugin 'tpope/vim-fugitive'
@@ -23,6 +31,7 @@ Plugin 'ervandew/supertab'
 Plugin 'Raimondi/delimitMate'
 
 " Programming
+Plugin 'derekwyatt/vim-scala'
 Plugin 'fatih/vim-go'
 Plugin 'benmills/vim-golang-alternate'
 
@@ -41,25 +50,36 @@ colorscheme hybrid
 let g:hybrid_use_Xresources = 1
 
 set background=dark " Dark background
-set number       " Display line numbers
-set noswapfile   " Disable swap files.
-set hidden       " Hide buffers
-set incsearch    " Enable incremental search 
-set nowrap       " Do not wrap long lines.
-set ignorecase   " Ignore case when searching.
-set smartcase    " Only ignore case when search string is lowercase.
-set ttyfast      " Send more characters to the screen for redraw.
-set scrolloff=5  " Keep lines above and below the cursor when scrolling.
-set autowrite    " Save on buffer switch.
-set fillchars="" " Remove the vertical split separator.
+
+set number         " Display line numbers
+set relativenumber " Relative numbers
+set noswapfile	   " Disable swap files.
+set hidden    	   " Hide buffers
+set nowrap    	   " Do not wrap long lines.
+set ttyfast   	   " Send more characters to the screen for redraw.
+set scrolloff=5    " Keep lines above and below the cursor when scrolling.
+set autowrite 	   " Save on buffer switch.
+set fillchars=""   " Remove the vertical split separator.
+
+set wildmenu   " Visual auto-complete for command menu
+set showmatch  " Highlight matching [{()}]
+set incsearch  " Enable incremental search 
+set ignorecase " Ignore case when searching.
+set smartcase  " Only ignore case when search string is lowercase.
 
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
+set mouse=a " Enable mouse support
+
+" Move cursor to new split
+set splitbelow
+set splitright
+
 " These remove Esc delay
 set ttimeout
-set ttimeoutlen=100
+set ttimeoutlen=50
 "
 " Disable preview window on autocomplete
 set completeopt-=preview
@@ -74,6 +94,10 @@ nnoremap <leader><leader> <C-^>
 " Save buffer when leaving insert mode.
 autocmd InsertLeave * update
 
+autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown setlocal spell 
+autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown :Goyo
+autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown :SoftPencil
+
 " Learn Vim!
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -86,9 +110,8 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 
-au FileType go au BufWritePost <buffer> execute 'GoLint' | cwindow
-
 let g:go_fmt_command="goimports"
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'gocyclo']
 
 " Toggle between test and implementation
 nmap T :A<CR>
@@ -110,6 +133,9 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " Javascript
 let g:js_fmt_fail_silently = 1
 let g:js_fmt_autosave = 1
+
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = '\v[\/]Godeps\/_workspace'
 
 " The default highlight colors on debian are difficult to see.
 hi SpellBad cterm=underline ctermfg=15 ctermbg=1
