@@ -1,0 +1,5 @@
+# case insensitive auto-completion
+set completion-ignore-case On
+
+# single tab will show all
+set show-all-if-ambiguous on
