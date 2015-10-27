@@ -179,6 +179,9 @@ client.urgent           $color9  $color1 $foreground $color9
 
 # Status bar colors
 bar {
+  mode hide
+  hidden_state hide
+  modifier $mod
   status_command i3blocks
   position top
   colors {
