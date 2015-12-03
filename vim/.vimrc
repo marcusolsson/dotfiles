@@ -14,6 +14,8 @@ Plugin 'mileszs/ack.vim'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'tpope/vim-commentary'
 Plugin 'takac/vim-hardtime'
+Plugin 'itchyny/lightline.vim'
+Plugin 'cocopon/lightline-hybrid.vim'
 
 " Writing
 Plugin 'junegunn/goyo.vim'
@@ -46,10 +48,13 @@ filetype plugin indent on
 " Colors
 set t_Co=256
 syntax enable
-colorscheme hybrid
-let g:hybrid_use_Xresources = 1
 
+let g:lightline = {}
+let g:lightline.colorscheme = 'hybrid'
+
+let g:hybrid_use_Xresources = 1
 set background=dark " Dark background
+colorscheme hybrid
 
 set number         " Display line numbers
 set relativenumber " Relative numbers
