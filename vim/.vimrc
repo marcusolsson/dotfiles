@@ -34,6 +34,7 @@ Plugin 'Raimondi/delimitMate'
 
 " Programming
 Plugin 'derekwyatt/vim-scala'
+Plugin 'dag/vim2hs'
 Plugin 'fatih/vim-go'
 Plugin 'benmills/vim-golang-alternate'
 
