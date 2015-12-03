@@ -9,12 +9,19 @@ URxvt*cursorBlink: true
 URxvt*scrollBar:   false
 URxvt*saveLines:   1000000
 
-URxvt.perl-ext-common: font-size
+URxvt.perl-ext-common: font-size,clipboard
+
 URxvt.keysym.C-Up:     perl:font-size:increase
 URxvt.keysym.C-Down:   perl:font-size:decrease
 URxvt.keysym.C-S-Up:   perl:font-size:incglobal
 URxvt.keysym.C-S-Down: perl:font-size:decglobal
 URxvt.font-size.step:  4
+
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.clipboard.copycmd:  xclip -i -selection clipboard
+URxvt.clipboard.pastecmd: xclip -o -selection clipboard
 
 URxvt*font:      xft:Inconsolata:pixelsize=18
 URxvt*letterSpace: -1 
