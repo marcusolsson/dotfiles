@@ -3,17 +3,12 @@
 export PATH=$HOME/bin:$PATH
 export CDPATH=".:~/Development/go/src"
 
-hhkb_id=`xinput -list | grep -o -P 'HHKB Professional\s+id=\d+' | grep -o -P '\d+'`
-
-if [ "${hhkb_id}" ]; then
-	setxkbmap -model hhk -layout us -option lv3:ralt_switch -variant altgr-intl
-else
-	setxkbmap -layout us -variant altgr-intl -option ctrl:nocaps
-fi
-
+setxkbmap -layout us -variant altgr-intl -option ctrl:nocaps
 xset r rate 200 30
 
 volumeicon &
+nm-applet &
+passtray &
 
 urxvtd -q -o -f
 
