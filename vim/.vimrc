@@ -7,7 +7,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Basic stuff
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-markdown'
 Plugin 'mileszs/ack.vim'
@@ -139,6 +139,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:js_fmt_fail_silently = 1
 let g:js_fmt_autosave = 1
 
+" CtrlP
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\v[\/]Godeps\/_workspace'
 
