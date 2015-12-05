@@ -38,9 +38,22 @@ $percent = $2;
 $full_text = "$percent%";
 
 if ($status eq 'Discharging') {
-	$full_text .= ' DIS';
+
+	if ($percent < 10) {
+		$full_text .= '  ';
+	} elsif ($percent < 25) {
+		$full_text .= '  ';
+	} elsif ($percent < 50) {
+		$full_text .= '  ';
+	} elsif ($percent < 75) {
+		$full_text .= '  ';
+	} elsif ($percent < 100) {
+		$full_text .= '  ';
+	}
+} elsif ($status eq 'Unknown') {
+    $full_text .= '  ';
 } elsif ($status eq 'Charging') {
-	$full_text .= ' CHR';
+    $full_text .= '  ';
 }
 
 $short_text = $full_text;
@@ -56,14 +69,10 @@ print "$short_text\n";
 # consider color and urgent flag only on discharge
 if ($status eq 'Discharging') {
 
-	if ($percent < 20) {
-		print "#FF0000\n";
-	} elsif ($percent < 40) {
-		print "#FFAE00\n";
-	} elsif ($percent < 60) {
-		print "#FFF600\n";
-	} elsif ($percent < 85) {
-		print "#A8FF00\n";
+	if ($percent < 25) {
+		print "#CC6666\n";
+	} else {
+		print "#C5C8C6\n";
 	}
 
 	if ($percent < 5) {
