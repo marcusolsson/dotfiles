@@ -66,6 +66,10 @@ set ttyfast   	   " Send more characters to the screen for redraw.
 set scrolloff=5    " Keep lines above and below the cursor when scrolling.
 set autowrite 	   " Save on buffer switch.
 set fillchars=""   " Remove the vertical split separator.
+set backspace=indent,eol,start
+                   " allow backspacing over everything in insert mode 
+set history=1000
+set linespace=0
 
 set wildmenu   " Visual auto-complete for command menu
 set showmatch  " Highlight matching [{()}]
@@ -77,7 +81,16 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
-set mouse=a " Enable mouse support
+set laststatus=2
+set noshowmode
+
+set mouse=a   " Enable mouse support
+
+" Easier split navigation
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
 
 " Move cursor to new split
 set splitbelow
@@ -86,16 +99,20 @@ set splitright
 " These remove Esc delay
 set ttimeout
 set ttimeoutlen=50
-"
+
 " Disable preview window on autocomplete
 set completeopt-=preview
 
 let g:netrw_banner=0 
+let g:netrw_liststyle=3
+
 let loaded_matchparen=1
 let mapleader=","
 
 " Switch between last two buffers
 nnoremap <leader><leader> <C-^>
+
+map <leader>e :Explore<cr> 
 
 " Save buffer when leaving insert mode.
 autocmd InsertLeave * update
@@ -117,11 +134,15 @@ au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 
 let g:go_fmt_command="goimports"
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'gocyclo']
+
+let g:go_metalinter_enabled=['vet', 'golint', 'errcheck', 'gocyclo']
+let g:go_metalinter_autosave=1
 
 " Toggle between test and implementation
 nmap T :A<CR>
 
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
