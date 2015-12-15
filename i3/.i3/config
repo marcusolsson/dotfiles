@@ -29,6 +29,8 @@ floating_modifier $mod
 
 # browser pop-ups
 for_window [window_role="pop-up"] floating enable,move absolute center
+for_window [class="Pavucontrol"] floating enable,move absolute center
+for_window [class="Nitrogen"] floating enable,move absolute center
 
 # handle popups
 popup_during_fullscreen smart
