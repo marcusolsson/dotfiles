@@ -6,7 +6,13 @@ export CDPATH=".:~/Development/go/src"
 setxkbmap -layout us -variant altgr-intl -option ctrl:nocaps
 xset r rate 200 30
 
-volumeicon &
+synclient TapButton1=1
+synclient TapButton2=3
+synclient TapButton3=2
+synclient VertTwoFingerScroll=1
+synclient HorizTwoFingerScroll=1
+
+pasystray &
 nm-applet &
 passtray &
 
