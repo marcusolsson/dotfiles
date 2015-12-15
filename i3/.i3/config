@@ -207,5 +207,5 @@ bar {
   }
 }
 
-exec hotplug.sh
-exec_always compton -f -D 5
+exec_always --no-startup-id hotplug.sh
+exec_always --no-startup-id compton -f -D 5 --backend glx --vsync opengl
