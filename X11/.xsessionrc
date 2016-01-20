@@ -11,10 +11,13 @@ synclient TapButton2=3
 synclient TapButton3=2
 synclient VertTwoFingerScroll=1
 synclient HorizTwoFingerScroll=1
+synclient VertScrollDelta=-114
+synclient HorizScrollDelta=-114
 
 pasystray &
 nm-applet &
 passtray &
+udiskie --smart-tray &
 
 urxvtd -q -o -f
 
