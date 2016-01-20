@@ -18,8 +18,6 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'cocopon/lightline-hybrid.vim'
 
 " Writing
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
 Plugin 'reedes/vim-pencil'
 Plugin 'reedes/vim-wordy'
 
@@ -33,8 +31,6 @@ Plugin 'ervandew/supertab'
 Plugin 'Raimondi/delimitMate'
 
 " Programming
-Plugin 'derekwyatt/vim-scala'
-Plugin 'dag/vim2hs'
 Plugin 'fatih/vim-go'
 Plugin 'benmills/vim-golang-alternate'
 
@@ -54,6 +50,7 @@ let g:lightline = {}
 let g:lightline.colorscheme = 'hybrid'
 
 let g:hybrid_use_Xresources = 1
+let g:hybrid_custom_term_colors = 1
 set background=dark " Dark background
 colorscheme hybrid
 
@@ -62,6 +59,7 @@ set relativenumber " Relative numbers
 set noswapfile	   " Disable swap files.
 set hidden    	   " Hide buffers
 set nowrap    	   " Do not wrap long lines.
+set lazyredraw
 set ttyfast   	   " Send more characters to the screen for redraw.
 set scrolloff=5    " Keep lines above and below the cursor when scrolling.
 set autowrite 	   " Save on buffer switch.
@@ -73,6 +71,7 @@ set linespace=0
 
 set wildmenu   " Visual auto-complete for command menu
 set showmatch  " Highlight matching [{()}]
+set nohlsearch
 set incsearch  " Enable incremental search 
 set ignorecase " Ignore case when searching.
 set smartcase  " Only ignore case when search string is lowercase.
@@ -118,8 +117,10 @@ map <leader>e :Explore<cr>
 autocmd InsertLeave * update
 
 autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown setlocal spell 
-autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown :Goyo
-autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown :SoftPencil
+autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown :HardPencil
+
+let g:pencil#textwidth = 74
+let g:pencil#autoformat = 1
 
 " Learn Vim!
 noremap <Up> <NOP>
