@@ -2,13 +2,21 @@
 
 export VISUAL=vim
 export EDITOR=vim
+export BROWSER=firefox
+
+export HISTSIZE=5000
+export HISTFILESIZE=10000
 
 export HISTCONTROL=ignoredups
 
 alias ls='ls --color=auto'
 alias ll='ls -l'
+alias aglio='docker run --rm -v $PWD/docs:/data davidonlaptop/aglio -i /data/blueprint.md -o /data/index.html'
 
 source $HOME/.bash_prompt
+
+# Java
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 
 # Go
 export GOROOT=$HOME/go
