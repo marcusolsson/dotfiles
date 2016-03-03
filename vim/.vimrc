@@ -1,49 +1,37 @@
-set nocompatible
-filetype off
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " Basic stuff
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-markdown'
-Plugin 'mileszs/ack.vim'
-Plugin 'w0ng/vim-hybrid'
-Plugin 'tpope/vim-commentary'
-Plugin 'takac/vim-hardtime'
-Plugin 'itchyny/lightline.vim'
-Plugin 'cocopon/lightline-hybrid.vim'
-
-" Writing
-Plugin 'reedes/vim-pencil'
-Plugin 'reedes/vim-wordy'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-commentary'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+Plug 'w0ng/vim-hybrid'
+Plug 'takac/vim-hardtime'
+Plug 'itchyny/lightline.vim'
+Plug 'cocopon/lightline-hybrid.vim'
 
 " Development
-Plugin 'tpope/vim-fugitive'
-Plugin 'int3/vim-extradite'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
-Plugin 'ervandew/supertab'
-Plugin 'Raimondi/delimitMate'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'
+Plug 'ervandew/supertab'
+Plug 'jiangmiao/auto-pairs'
 
 " Programming
-Plugin 'fatih/vim-go'
-Plugin 'benmills/vim-golang-alternate'
+Plug 'fatih/vim-go'
+Plug 'benmills/vim-golang-alternate'
 
 " Javascript
-Plugin 'Shutnik/jshint2.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mephux/vim-jsfmt'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'elzr/vim-json'
 
-call vundle#end()
-filetype plugin indent on
+call plug#end()
 
 " Colors
-set t_Co=256
 syntax enable
 
 let g:lightline = {}
@@ -51,16 +39,19 @@ let g:lightline.colorscheme = 'hybrid'
 
 let g:hybrid_use_Xresources = 1
 let g:hybrid_custom_term_colors = 1
+
 set background=dark " Dark background
 colorscheme hybrid
+
+set nocursorcolumn " do not highlight column
+set nocursorline   " do not highlight line
 
 set number         " Display line numbers
 set relativenumber " Relative numbers
 set noswapfile	   " Disable swap files.
 set hidden    	   " Hide buffers
 set nowrap    	   " Do not wrap long lines.
-set lazyredraw
-set ttyfast   	   " Send more characters to the screen for redraw.
+set lazyredraw     " Disable excessive redrawing.
 set scrolloff=5    " Keep lines above and below the cursor when scrolling.
 set autowrite 	   " Save on buffer switch.
 set fillchars=""   " Remove the vertical split separator.
@@ -70,11 +61,11 @@ set history=1000
 set linespace=0
 
 set wildmenu   " Visual auto-complete for command menu
-set showmatch  " Highlight matching [{()}]
-set nohlsearch
-set incsearch  " Enable incremental search 
+
 set ignorecase " Ignore case when searching.
 set smartcase  " Only ignore case when search string is lowercase.
+set incsearch  " Enable incremental search 
+set nohlsearch " Don't highlight matches
 
 set tabstop=4
 set shiftwidth=4
@@ -85,15 +76,14 @@ set noshowmode
 
 set mouse=a   " Enable mouse support
 
-" Easier split navigation
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-l> <C-w><C-l>
-nnoremap <C-h> <C-w><C-h>
+" Have the indent commands re-highlight the last visual selection to make
+" multiple indentations easier
+vnoremap > >gv
+vnoremap < <gv
 
-" Move cursor to new split
-set splitbelow
-set splitright
+" Center on search
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 " These remove Esc delay
 set ttimeout
@@ -102,25 +92,25 @@ set ttimeoutlen=50
 " Disable preview window on autocomplete
 set completeopt-=preview
 
+let loaded_matchparen = 1 
+let g:hardtime_default_on = 1
 let g:netrw_banner=0 
-let g:netrw_liststyle=3
 
-let loaded_matchparen=1
 let mapleader=","
 
 " Switch between last two buffers
 nnoremap <leader><leader> <C-^>
 
+" System clipboard
+nnoremap <Leader>p "+]p
+nnoremap <Leader>P "+]P
+vnoremap <Leader>y "+y
+vnoremap <Leader>d "+d
+
 map <leader>e :Explore<cr> 
 
-" Save buffer when leaving insert mode.
-autocmd InsertLeave * update
-
+" Spelling for markdown
 autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown setlocal spell 
-autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown :HardPencil
-
-let g:pencil#textwidth = 74
-let g:pencil#autoformat = 1
 
 " Learn Vim!
 noremap <Up> <NOP>
@@ -158,15 +148,16 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" Javascript
-let g:js_fmt_fail_silently = 1
-let g:js_fmt_autosave = 1
-
 " CtrlP
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\v[\/]Godeps\/_workspace'
+
+nmap <C-b> :CtrlPBuffer<CR>
 
 " The default highlight colors on debian are difficult to see.
 hi SpellBad cterm=underline ctermfg=15 ctermbg=1
 hi Error ctermbg=1
 hi Search ctermfg=8
+
+" Javascript
+autocmd FileType javascript setlocal sw=2
