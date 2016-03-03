@@ -4,7 +4,7 @@ export PATH=$HOME/bin:$PATH
 export CDPATH=".:~/Development/go/src"
 
 setxkbmap -layout us -variant altgr-intl -option ctrl:nocaps
-xset r rate 200 30
+xset r rate 200 40
 
 synclient TapButton1=1
 synclient TapButton2=3
