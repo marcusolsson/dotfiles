@@ -93,7 +93,6 @@ set ttimeoutlen=50
 set completeopt-=preview
 
 let loaded_matchparen = 1 
-let g:hardtime_default_on = 1
 let g:netrw_banner=0 
 
 let mapleader=","
