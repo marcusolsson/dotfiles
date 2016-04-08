@@ -1,0 +1,19 @@
+#!/bin/bash
+
+export VISUAL=vim
+export EDITOR=vim
+export BROWSER=firefox
+
+export HISTSIZE=5000
+export HISTFILESIZE=10000
+
+export HISTCONTROL=ignoredups
+
+# Java
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+
+# Go
+export GOROOT=$HOME/go
+export PATH=$PATH:$GOROOT/bin
+export GOPATH=$HOME/Development/go
+export PATH=$PATH:$GOPATH/bin
