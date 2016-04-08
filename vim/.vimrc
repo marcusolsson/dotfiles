@@ -9,6 +9,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'takac/vim-hardtime'
+Plug 'scrooloose/nerdtree'
 Plug 'rking/ag.vim'
 
 " Development
@@ -102,6 +103,7 @@ vnoremap <Leader>y "+y
 vnoremap <Leader>d "+d
 
 map <leader>e :Explore<cr> 
+map <leader>n :NERDTreeToggle<cr>
 
 " Spelling for markdown
 autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown setlocal spell 
