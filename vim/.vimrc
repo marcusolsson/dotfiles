@@ -9,8 +9,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'takac/vim-hardtime'
-Plug 'itchyny/lightline.vim'
-Plug 'cocopon/lightline-hybrid.vim'
 Plug 'rking/ag.vim'
 
 " Development
@@ -34,9 +32,6 @@ call plug#end()
 
 " Colors
 syntax enable
-
-let g:lightline = {}
-let g:lightline.colorscheme = 'hybrid'
 
 let g:hybrid_use_Xresources = 1
 let g:hybrid_custom_term_colors = 1
@@ -72,8 +67,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
-set laststatus=2
-set noshowmode
+set laststatus=1
 
 set mouse=a   " Enable mouse support
 
