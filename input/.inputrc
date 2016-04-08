@@ -1,5 +1,11 @@
 # case insensitive auto-completion
 set completion-ignore-case On
 
+# treat hyphens and underscores the same
+set completion-map-case on
+
 # single tab will show all
+set show-all-if-ambiguous on
+
+# show alternatives on first tab press
 set show-all-if-ambiguous on
