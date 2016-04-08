@@ -2,6 +2,9 @@
 	email = ninjasinventedphysics@gmail.com
 	name = Marcus Olsson
 
+[merge]
+	ff = only
+
 [color]
 	ui = true
 
