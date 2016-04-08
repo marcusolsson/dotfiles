@@ -1,11 +1,20 @@
 # case insensitive auto-completion
 set completion-ignore-case On
 
-# treat hyphens and underscores the same
-set completion-map-case on
-
 # single tab will show all
 set show-all-if-ambiguous on
 
+# add a trailing slash when autocompleting symlinks to directories
+set mark-symlinked-directories on
+
+# treat hyphens and underscores the same
+set completion-map-case on
+
 # show alternatives on first tab press
 set show-all-if-ambiguous on
+
+set skip-completed-text on
+
+set input-meta on
+set output-meta on
+set convert-meta off
