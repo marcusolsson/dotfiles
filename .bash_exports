@@ -22,3 +22,7 @@ export GOROOT=$HOME/go
 export PATH=$PATH:$GOROOT/bin
 export GOPATH=$HOME/Development/go
 export PATH=$PATH:$GOPATH/bin
+
+# Prefer US English and use UTF-8
+export LANG="en_US"
+export LC_ALL="en_US.UTF-8"
