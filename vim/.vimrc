@@ -11,6 +11,7 @@ Plug 'w0ng/vim-hybrid'
 Plug 'takac/vim-hardtime'
 Plug 'itchyny/lightline.vim'
 Plug 'cocopon/lightline-hybrid.vim'
+Plug 'rking/ag.vim'
 
 " Development
 Plug 'tpope/vim-fugitive'
@@ -160,3 +161,4 @@ hi Search ctermfg=8
 
 " Javascript
 autocmd FileType javascript setlocal sw=2
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
