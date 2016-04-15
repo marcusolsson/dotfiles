@@ -22,7 +22,6 @@ Plug 'jiangmiao/auto-pairs'
 
 " Programming
 Plug 'fatih/vim-go'
-Plug 'benmills/vim-golang-alternate'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
@@ -54,6 +53,7 @@ set autowrite 	   " Save on buffer switch.
 set fillchars=""   " Remove the vertical split separator.
 set backspace=indent,eol,start
                    " allow backspacing over everything in insert mode 
+set breakindent    " keep wrapped lines indented
 set history=1000
 set linespace=0
 
@@ -120,19 +120,31 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 
+au FileType go nmap gD <Plug>(go-doc)
+au FileType go nmap gr <Plug>(go-rename)
+
 let g:go_fmt_command="goimports"
 
 let g:go_metalinter_enabled=['vet', 'golint', 'errcheck', 'gocyclo']
 let g:go_metalinter_autosave=1
 
 " Toggle between test and implementation
-nmap T :A<CR>
+nmap T :GoAlternate<CR>
+
+let g:go_auto_type_info=0
+let g:godef_same_file_in_same_window=1
+let g:godef_split=0
 
 let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+
+let g:go_space_tab_error=1
+let g:go_trailing_whitespace_error=1
+let g:go_chan_whitespace_error=1
+let g:go_array_whitespace_error=1
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -150,11 +162,7 @@ let g:ctrlp_custom_ignore = '\v[\/]Godeps\/_workspace'
 
 nmap <C-b> :CtrlPBuffer<CR>
 
-" The default highlight colors on debian are difficult to see.
-hi SpellBad cterm=underline ctermfg=15 ctermbg=1
-hi Error ctermbg=1
-hi Search ctermfg=8
-
 " Javascript
 autocmd FileType javascript setlocal sw=2
+
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
