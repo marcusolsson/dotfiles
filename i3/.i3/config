@@ -69,7 +69,7 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+d focus child
 
-set $ws1 1 
+set $ws1 1 
 set $ws2 2 
 set $ws3 3 
 set $ws4 4 
