@@ -41,9 +41,9 @@ colorscheme hybrid
 
 set nocursorcolumn " do not highlight column
 set nocursorline   " do not highlight line
+set re=1           " use old regex engine, faster for Go highlighting
 
 set number         " Display line numbers
-set relativenumber " Relative numbers
 set noswapfile	   " Disable swap files.
 set hidden    	   " Hide buffers
 set nowrap    	   " Do not wrap long lines.
@@ -105,7 +105,7 @@ vnoremap <Leader>d "+d
 map <leader>e :Explore<cr> 
 map <leader>n :NERDTreeToggle<cr>
 
-" Spelling for markdown
+" Markdown
 autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown setlocal spell 
 
 " Learn Vim!
