@@ -1,3 +1,5 @@
+URxvt.termName: rxvt-256color
+
 ! Xft
 Xft*dpi:       96
 Xft*antialias: true
@@ -56,4 +58,5 @@ URxvt*color14: #8ABEB7
 URxvt*color7: #707880
 URxvt*color15: #C5C8C6
 
-
+!Disables the insanely annoying Ctrl+Shift shortcut that enters ISO14755 mode
+URxvt.iso14755:         False
