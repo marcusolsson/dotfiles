@@ -7,10 +7,10 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-commentary'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
-Plug 'w0ng/vim-hybrid'
 Plug 'takac/vim-hardtime'
 Plug 'scrooloose/nerdtree'
 Plug 'rking/ag.vim'
+Plug 'robertmeta/nofrils'
 
 " Development
 Plug 'tpope/vim-fugitive'
@@ -31,13 +31,8 @@ Plug 'elzr/vim-json'
 call plug#end()
 
 " Colors
+colorscheme nofrils-dark
 syntax enable
-
-let g:hybrid_use_Xresources = 1
-let g:hybrid_custom_term_colors = 1
-
-set background=dark " Dark background
-colorscheme hybrid
 
 set nocursorcolumn " do not highlight column
 set nocursorline   " do not highlight line

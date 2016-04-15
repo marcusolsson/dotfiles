@@ -158,7 +158,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Color palette from base16 Tomorrow Night
-set $background #1D1F21
+set $background #262626
 set $foreground #C5C8C6
 # black
 set $color0 #282A2E

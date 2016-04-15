@@ -31,7 +31,7 @@ URxvt*letterSpace: -1
 ! Hybrid Terminal Colours. Uses the palette from Tomorrow-Night:
 ! https://github.com/chriskempson/tomorrow-theme/blob/master/vim/colors/Tomorrow-Night.vim
 
-URxvt*background: #1D1F21
+URxvt*background: #262626
 URxvt*foreground: #C5C8C6
 ! black
 URxvt*color0: #282A2E
