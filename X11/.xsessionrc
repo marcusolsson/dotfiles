@@ -22,3 +22,5 @@ udiskie --smart-tray &
 urxvtd -q -o -f
 
 nitrogen --restore
+
+eval $(ssh-agent)
