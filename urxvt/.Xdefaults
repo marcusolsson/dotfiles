@@ -1,32 +1,47 @@
-URxvt.termName: rxvt-256color
-
 ! Xft
-Xft*dpi:       96
+Xft*dpi:       110
 Xft*antialias: true
 Xft*rgba:      rgb
+Xft*lcdfilter: lcddefault
 Xft*hinting:   true
 Xft*hintstyle: hintfull
+
+URxvt.termName: rxvt-256color
 
 URxvt*cursorBlink: true
 URxvt*scrollBar:   false
 URxvt*saveLines:   1000000
 
+! Change font size. Useful for presentations.
 URxvt.perl-ext-common: font-size,clipboard
-
 URxvt.keysym.C-Up:     perl:font-size:increase
 URxvt.keysym.C-Down:   perl:font-size:decrease
 URxvt.keysym.C-S-Up:   perl:font-size:incglobal
 URxvt.keysym.C-S-Down: perl:font-size:decglobal
 URxvt.font-size.step:  4
 
+! Copy/paste
 URxvt.keysym.M-c:   perl:clipboard:copy
 URxvt.keysym.M-v:   perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 URxvt.clipboard.copycmd:  xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
 
-URxvt*font:      xft:Inconsolata:pixelsize=18
-URxvt*letterSpace: -1 
+! Fonts
+URxvt.font:     xft:Inconsolata:Medium:pixelsize=18
+URxvt.boldFont: xft:Inconsolata:Bold:pixelsize=18
+URxvt.letterSpace: -1 
+
+! Do not scroll with output.
+URxvt*scrollTtyOutput:      false
+
+! Scroll in relation to buffer (with mouse scroll or Shift+Page Up).
+URxvt*scrollWithBuffer:     true
+
+! Scroll back to the bottom on keypress.
+URxvt*scrollTtyKeypress:    true
+
+! Disables the insanely annoying Ctrl+Shift shortcut that enters ISO14755 mode.
+URxvt.iso14755:         False
 
 ! Hybrid Terminal Colours. Uses the palette from Tomorrow-Night:
 ! https://github.com/chriskempson/tomorrow-theme/blob/master/vim/colors/Tomorrow-Night.vim
@@ -57,6 +72,3 @@ URxvt*color14: #8ABEB7
 ! white
 URxvt*color7: #707880
 URxvt*color15: #C5C8C6
-
-!Disables the insanely annoying Ctrl+Shift shortcut that enters ISO14755 mode
-URxvt.iso14755:         False
