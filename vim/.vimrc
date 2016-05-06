@@ -15,10 +15,12 @@ Plug 'robertmeta/nofrils'
 " Development
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
+Plug 'Shougo/deoplete.nvim'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 " Programming
 Plug 'fatih/vim-go'
@@ -29,6 +31,12 @@ Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
 
 call plug#end()
+
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
+let g:deoplete#enable_at_startup = 1
+
+
 
 " Colors
 colorscheme nofrils-dark

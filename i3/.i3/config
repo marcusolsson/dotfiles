@@ -1,6 +1,6 @@
 set $mod Mod4
 
-font pango:Droid Sans, FontAwesome 10 
+font pango:Droid Sans, FontAwesome 10
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -36,10 +36,8 @@ for_window [class="Nitrogen"] floating enable,move absolute center
 popup_during_fullscreen smart
 
 # borders
-new_window 1pixel
+new_window none
 new_float 1pixel
-
-hide_edge_borders both
 
 bindsym $mod+b border toggle
 
@@ -124,6 +122,7 @@ bindsym XF86AudioMute        exec --no-startup-id "amixer set Master toggle"
 # monitor brightness
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 10 -time 500 -steps 100
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 -time 500 -steps 100
+bindsym XF86Display           exec xrandr --auto
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -185,16 +184,17 @@ set $color14 #8ABEB7
 set $color7 #707880
 set $color15 #C5C8C6
 
+set $black0 #3B3B3B
+
 # Window colors
 # class                 border  backgr. text     indicator
-client.focused          $color8 $color8 $foreground $color10
-client.focused_inactive $color8 $color0 $color7  $color8
-client.unfocused        $color0 $color0 $color7  $color8 
+client.focused          $black0 $black0 $foreground $foreground
+client.focused_inactive $black0 $black0 $color7  $color8
+client.unfocused        $background $background $color7  $color8 
 client.urgent           $color8 $color0 $color7  $color8
 
 # Status bar colors
 bar {
-  #font pango:Terminus, FontAwesome Bold Semi-Condensed 10 
   status_command i3blocks
   position top
   strip_workspace_numbers yes
