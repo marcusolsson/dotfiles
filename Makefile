@@ -3,7 +3,7 @@
 all: dotfiles
 
 dotfiles:
-	for file in $(shell find $(CURDIR) -name ".*" -not -name ".git" -not -name ".config"); do \
+	for file in $(shell find $(CURDIR) -name ".*" -not -name ".git" -not -name ".config" -not -name "ext"); do \
 		f=$$(basename $$file); \
 		ln -sfn $$file $(HOME)/$$f; \
 	done; \
