@@ -107,6 +107,16 @@ set ttimeoutlen=50
 
 let mapleader=","
 
+map <C-n> :cn<CR>
+map <C-m> :cp<CR>
+nnoremap <leader>a :cclose<CR>
+
+" Remap H and L (top, bottom of screen to left and right end of line)
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L g_
+
 " Visual linewise up and down by default
 noremap j gj
 noremap k gk
@@ -163,35 +173,24 @@ endif
 autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown setlocal spell 
 
 " Go programming
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <Leader>l <Plug>(go-metalinter)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <leader>d <Plug>(go-doc)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>t <Plug>(go-test)
 
 au FileType go nmap gD <Plug>(go-doc)
 au FileType go nmap gr <Plug>(go-rename)
 
 let g:go_fmt_command="goimports"
-let g:go_metalinter_enabled=['vet', 'golint', 'errcheck', 'gocyclo']
+let g:go_metalinter_enabled=['vet', 'golint', 'gocyclo']
 let g:go_metalinter_autosave=1
+let g:go_term_enabled = 0
+let g:go_term_mode = "split"
 
 " Toggle between test and implementation
 nmap T :GoAlternate<CR>
-
-let g:go_auto_type_info=0
-let g:godef_same_file_in_same_window=1
-let g:godef_split=0
-
-let g:go_highlight_extra_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-
-let g:go_space_tab_error=1
-let g:go_trailing_whitespace_error=1
-let g:go_chan_whitespace_error=1
-let g:go_array_whitespace_error=1
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger = "<tab>"
