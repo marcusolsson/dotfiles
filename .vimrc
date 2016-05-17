@@ -15,6 +15,7 @@ Plug 'SirVer/ultisnips'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'fatih/vim-go'
+Plug 'nvie/vim-flake8'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
@@ -202,6 +203,9 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\v[\/]Godeps\/_workspace'
 
 nmap <C-b> :CtrlPBuffer<CR>
+
+" Python
+autocmd BufWritePost *.py call Flake8()
 
 " Javascript
 autocmd FileType javascript setlocal sw=2
