@@ -9,7 +9,7 @@ dotfiles:
 	done; \
 	for file in $(shell find $(CURDIR)/.config -mindepth 1 -maxdepth 1); do \
 		f=$$(basename $$file); \
-		ln -sfn $$file $(HOME)/$$f; \
+		ln -sfn $$file $(HOME)/.config/$$f; \
 	done; \
 	mkdir -p $(HOME)/.config/nvim && ln -sfn $(CURDIR)/.vimrc $(HOME)/.config/nvim/init.vim
 
