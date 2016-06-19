@@ -49,8 +49,8 @@ URxvt.iso14755:         False
 URxvt*background: #262626
 URxvt*foreground: #C5C8C6
 ! black
-URxvt*color0: #282A2E
-URxvt*color8: #373B41
+URxvt*color0: #262626
+URxvt*color8: #515151
 ! red
 URxvt*color1: #A54242
 URxvt*color9: #CC6666

@@ -36,7 +36,7 @@ for_window [class="Nitrogen"] floating enable,move absolute center
 popup_during_fullscreen smart
 
 # borders
-new_window none
+new_window 1pixel
 new_float 1pixel
 
 bindsym $mod+b border toggle
@@ -74,6 +74,7 @@ set $ws4 4 
 set $ws5 5 
 set $ws6 6 
 set $ws7 7 
+set $ws8 8 
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -83,7 +84,7 @@ bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace number 8
+bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
 
@@ -95,7 +96,7 @@ bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
@@ -184,14 +185,29 @@ set $color14 #8ABEB7
 set $color7 #707880
 set $color15 #C5C8C6
 
-set $black0 #3B3B3B
+# Grey colors
+
+set $grey0 #262626
+set $grey1 #313131
+set $grey2 #3C3C3C
+set $grey3 #474747
+set $grey4 #515151
+set $grey5 #5C5C5C
+set $grey6 #676767
+set $grey7 #727272
+set $grey8 #7D7D7D
+set $grey9 #888888
+set $grey10 #939393
+set $grey11 #9D9D9D
+set $grey12 #A8A8A8
+set $grey13 #B3B3B3
 
 # Window colors
-# class                 border  backgr. text     indicator
-client.focused          $black0 $black0 $foreground $foreground
-client.focused_inactive $black0 $black0 $color7  $color8
-client.unfocused        $background $background $color7  $color8 
-client.urgent           $color8 $color0 $color7  $color8
+# class                 border  backgr. text    indicator
+client.focused          $grey1  $grey1  $grey13 $grey13
+client.focused_inactive $grey0  $grey0  $grey4  $grey4
+client.unfocused        $grey0  $grey0  $grey4  $grey4
+client.urgent           $grey0  $grey0  $grey4  $grey4
 
 # Status bar colors
 bar {
@@ -199,14 +215,14 @@ bar {
   position top
   strip_workspace_numbers yes
   colors {
-    background $background
-    statusline $color7
+    background $grey0
+    statusline $grey10
 
-    # class             border   backgr. text
-    focused_workspace   $background $background $color10
-    active_workspace    $background $background $foreground
-    inactive_workspace  $background $background $foreground
-    urgent_workspace    $background $background $color1
+    # class             border  backgr. text
+    focused_workspace   $grey3  $grey3  $grey13
+    active_workspace    $grey1  $grey1  $grey5
+    inactive_workspace  $grey1  $grey1  $grey5
+    urgent_workspace    $grey1  $grey1  $color1
   }
 }
 
