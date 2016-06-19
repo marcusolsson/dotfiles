@@ -8,7 +8,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'rking/ag.vim'
-Plug 'robertmeta/nofrils'
+Plug 'pbrisbin/vim-colors-off'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
@@ -56,8 +56,9 @@ if has('!nvim')
 	syntax enable
 	set t_Co=256
 endif
+
 set background=dark
-colorscheme nofrils-dark
+colorscheme off
 
 " SETTINGS
 " ------------------------------------------------------------------------------
