@@ -11,3 +11,5 @@ fi
 
 # added by travis gem
 [ -f /home/marcus/.travis/travis.sh ] && source /home/marcus/.travis/travis.sh
+
+. /usr/share/autojump/autojump.sh
