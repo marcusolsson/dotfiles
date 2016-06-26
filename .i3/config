@@ -110,7 +110,7 @@ bindsym $mod+n exec rename_workspace.sh
 bindsym $mod+Return exec i3-shell.sh
 
 #bindsym $mod+p exec dmenu_run
-bindsym $mod+p exec rofi -show run -font "Roboto 16" -fg "#707880" -bg "#282A2E" -hlfg "#B5BD68" -hlbg "#373B41" -bc "#373B41" -lines 5 -width 20 -separator-style none -hide-scrollbar
+bindsym $mod+p exec rofi -show run
 
 bindsym $mod+Shift+p exec --no-startup-id "chromium --profile-directory='Default'"
 bindsym $mod+Shift+w exec --no-startup-id "chromium --profile-directory='Profile 1'"
@@ -227,5 +227,5 @@ bar {
 }
 
 exec_always --no-startup-id hotplug.sh
-exec_always --no-startup-id compton -f -D 5 --backend glx --vsync opengl
+exec_always --no-startup-id compton --config ~/dotfiles/.compton.conf
 exec --no-startup-id redshift-gtk -l 59.17:18.3

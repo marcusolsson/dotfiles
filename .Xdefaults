@@ -6,6 +6,20 @@ Xft*lcdfilter: lcddefault
 Xft*hinting:   true
 Xft*hintstyle: hintfull
 
+rofi.font: Roboto 14
+rofi.fg: #B3B3B3
+rofi.bg: #313131
+rofi.hlfg: #313131
+rofi.hlbg: #B3B3B3
+rofi.bc: #3C3C3C
+rofi.bw: 1
+rofi.lines: 5
+rofi.width: 20
+rofi.separator-style: none
+rofi.hide-scrollbar: true
+rofi.padding: 16
+rofi.fuzzy: true
+
 URxvt.termName: rxvt-256color
 
 URxvt*cursorBlink: true
