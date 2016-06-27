@@ -3,6 +3,8 @@
 export PATH=$HOME/bin:$PATH
 export CDPATH=".:~/Development/go/src"
 
+xrdb -load $HOME/.Xdefaults
+
 setxkbmap -layout us -variant altgr-intl -option ctrl:nocaps
 xset r rate 200 40
 
