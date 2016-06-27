@@ -3,11 +3,14 @@
 export PATH=$HOME/bin:$PATH
 export CDPATH=".:~/Development/go/src"
 
+# load default settings
 xrdb -load $HOME/.Xdefaults
 
+# configure keyboard
 setxkbmap -layout us -variant altgr-intl -option ctrl:nocaps
 xset r rate 200 40
 
+# trackpad
 synclient TapButton1=1
 synclient TapButton2=3
 synclient TapButton3=2
@@ -16,13 +19,20 @@ synclient HorizTwoFingerScroll=1
 synclient VertScrollDelta=-114
 synclient HorizScrollDelta=-114
 
+# https://aliceriot.github.io/2015/05/14/complete-screenlocking-solution-for-i3.html
+xautolock -time 10 -locker "lock.sh" &
+xset dpms 300 600 0 &
+
+# applets
 pasystray &
 nm-applet &
 passtray &
 udiskie --smart-tray &
 
+# start terminal daemon
 urxvtd -q -o -f
 
+# restore wallpaper
 nitrogen --restore
 
 eval $(ssh-agent)
