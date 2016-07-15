@@ -2,10 +2,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-commentary'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'rking/ag.vim'
 Plug 'pbrisbin/vim-colors-off'
@@ -15,47 +13,36 @@ Plug 'SirVer/ultisnips'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'fatih/vim-go'
+Plug 'Chiel92/vim-autoformat'
 Plug 'nvie/vim-flake8'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-
-if has('nvim')
-	Plug 'Shougo/deoplete.nvim'
-	Plug 'zchee/deoplete-go', { 'do': 'make'}
-else 
-	Plug 'Valloric/YouCompleteMe'
-endif
-
-" filetype plugins
+Plug 'marijnh/tern_for_vim'
+Plug 'Valloric/YouCompleteMe'
 Plug 'elzr/vim-json', {'for' : 'json'}
 Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 
 call plug#end()
 
-" These are default on NeoVim.
-if !has('nvim')
-	set nocompatible
-	filetype off
-	filetype plugin indent on
+set nocompatible
+filetype off
+filetype plugin indent on
 
-	set ttyfast
-	set ttymouse=xterm2
-	set ttyscroll=3
+set ttyfast
+set ttymouse=xterm2
+set ttyscroll=3
 
-	set encoding=utf-8              " Set default encoding to UTF-8
-	set autoread                    " Automatically reread changed files without asking me anything
-	set autoindent                  
-	set backspace=indent,eol,start  " Makes backspace key more powerful.
-	set incsearch                   " Shows the match while typing
-endif
+set encoding=utf-8              " Set default encoding to UTF-8
+set autoread                    " Automatically reread changed files without asking me anything
+set autoindent                  
+set backspace=indent,eol,start  " Makes backspace key more powerful.
+set incsearch                   " Shows the match while typing
 
 " COLORS
 " ------------------------------------------------------------------------------
 
-if has('!nvim')
-	syntax enable
-	set t_Co=256
-endif
+syntax enable
+set t_Co=256
 
 set background=dark
 colorscheme off
@@ -108,10 +95,6 @@ set ttimeoutlen=50
 
 let mapleader=","
 
-map <C-n> :cn<CR>
-map <C-m> :cp<CR>
-nnoremap <leader>a :cclose<CR>
-
 " Remap H and L (top, bottom of screen to left and right end of line)
 nnoremap H ^
 nnoremap L $
@@ -127,10 +110,6 @@ noremap k gk
 vnoremap > >gv
 vnoremap < <gv
 
-" Center on search
-nnoremap n nzzzv
-nnoremap N Nzzzv
-
 let loaded_matchparen = 1 
 let g:netrw_banner=0 
 
@@ -143,7 +122,6 @@ nnoremap <Leader>P "+]P
 vnoremap <Leader>y "+y
 vnoremap <Leader>d "+d
 
-map <leader>e :Explore<cr> 
 map <leader>n :NERDTreeToggle<cr>
 
 " Learn Vim!
@@ -155,17 +133,11 @@ noremap <Right> <NOP>
 " COMPLETION
 " ------------------------------------------------------------------------------
 
-if has('nvim') 
-	let g:python_host_prog = '/usr/bin/python'
-	let g:python3_host_prog = '/usr/bin/python3'
-	let g:deoplete#enable_at_startup = 1
-else 
-	let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-	let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-	
-	" make YCM compatible with UltiSnips (using supertab)
-	let g:SuperTabDefaultCompletionType = '<C-n>'
-endif
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " PLUGINS
 " ------------------------------------------------------------------------------
@@ -174,21 +146,12 @@ endif
 autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown setlocal spell 
 
 " Go programming
-au FileType go nmap <Leader>l <Plug>(go-metalinter)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 au FileType go nmap <leader>d <Plug>(go-doc)
-au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>t <Plug>(go-test)
 
-au FileType go nmap gD <Plug>(go-doc)
-au FileType go nmap gr <Plug>(go-rename)
-
 let g:go_fmt_command="goimports"
-let g:go_metalinter_enabled=['vet', 'golint', 'gocyclo']
-let g:go_metalinter_autosave=1
-let g:go_term_enabled = 0
-let g:go_term_mode = "split"
 
 " Toggle between test and implementation
 nmap T :GoAlternate<CR>
@@ -200,15 +163,20 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = '\v[\/]Godeps\/_workspace'
 
 nmap <C-b> :CtrlPBuffer<CR>
 
-" Python
-autocmd BufWritePost *.py call Flake8()
-
-" Javascript
-autocmd FileType javascript setlocal sw=2
+autocmd BufWrite *.ngt :Autoformat
+autocmd BufWrite *.html :Autoformat
+autocmd BufWrite *.css :Autoformat
+autocmd BufWrite *.js :Autoformat
+autocmd BufWrite *.py :Autoformat
 
 " Ag
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+" Shell
+au BufRead,BufNewFile *.sh set makeprg=shellcheck\ -f\ gcc\ %
+au BufWritePost *.sh :silent make | redraw!
+au QuickFixCmdPost [^l]* nested cwindow
+au QuickFixCmdPost    l* nested lwindow
