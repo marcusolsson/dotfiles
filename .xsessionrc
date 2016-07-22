@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/dotfiles/bin/bin:$PATH
 export CDPATH=".:~/Development/go/src"
 
 # load default settings
@@ -20,19 +20,17 @@ synclient VertScrollDelta=-114
 synclient HorizScrollDelta=-114
 
 # https://aliceriot.github.io/2015/05/14/complete-screenlocking-solution-for-i3.html
-xautolock -time 10 -locker "lock.sh" &
+xautolock -time 10 -locker "light-locker-command -l" &
 xset dpms 300 600 0 &
 
 # applets
 pasystray &
 nm-applet &
-passtray &
 udiskie --smart-tray &
+
+# lock screen daemon
+light-locker &
 
 # start terminal daemon
 urxvtd -q -o -f
 
-# restore wallpaper
-nitrogen --restore
-
-eval $(ssh-agent)
