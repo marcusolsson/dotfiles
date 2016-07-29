@@ -41,9 +41,8 @@ URxvt.clipboard.copycmd:  xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
 
 ! Fonts
-URxvt.font:     xft:Inconsolata:Medium:pixelsize=18
-URxvt.boldFont: xft:Inconsolata:Bold:pixelsize=18
-URxvt.letterSpace: -1 
+URxvt.font:     xft:Inconsolata:Bold:pixelsize=18
+URxvt.letterSpace: -2
 
 ! Do not scroll with output.
 URxvt*scrollTtyOutput:      false
