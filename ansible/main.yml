@@ -1,0 +1,56 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Install ZSH
+      apt: name=zsh state=present
+          
+    - name: Fetch antigen
+      git: repo=https://github.com/zsh-users/antigen.git dest={{ playbook_dir }}/antigen
+      
+    - name: Copy ZSH config
+      file: src={{ playbook_dir }}/files/zshrc dest=~/.zshrc state=link force=yes
+
+    - name: Install vim
+      apt: name=vim state=present
+      
+    - name: Copy vim config
+      file: src={{ playbook_dir }}/files/vimrc dest=~/.vimrc state=link force=yes
+
+    - name: Install i3
+      apt: name=i3 state=present
+
+    - name: Link i3 config
+      file: src={{ playbook_dir }}/files/i3 dest=~/.i3 state=link force=yes
+
+    - name: Link i3status.conf
+      file: src={{ playbook_dir }}/files/i3status.conf dest=~/.i3status.conf state=link force=yes
+
+    - name: Link i3blocks.conf
+      file: src={{ playbook_dir }}/files/i3blocks.conf dest=~/.i3blocks.conf state=link force=yes
+
+    - name: Install git
+      apt: name=git state=present
+          
+    - name: Link git config
+      file: src={{ playbook_dir }}/files/gitconfig dest=~/.gitconfig state=link force=yes
+
+    - name: Install URxvt
+      apt: name=rxvt-unicode-256color state=present
+
+    - name: Link URxvt extensions
+      file: src={{ playbook_dir }}/files/urxvt dest=~/.urxvt state=link force=yes
+
+    - name: Link Xresources
+      file: src={{ playbook_dir }}/files/Xresources dest=~/.Xresources state=link force=yes
+
+    - name: Link xsessionrc
+      file: src={{ playbook_dir }}/files/xsessionrc dest=~/.xsessionrc state=link force=yes
+
+    - name: Link inputrc
+      file: src={{ playbook_dir }}/files/inputrc dest=~/.inputrc state=link force=yes
+
+    - name: Install dunst
+      apt: name=dunst state=present
+
+    - name: Link dunstrc
+      file: src={{ playbook_dir }}/files/dunst dest=~/.config/dunst state=link force=yes

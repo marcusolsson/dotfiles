@@ -1,0 +1,53 @@
+[global]
+	font = Droid Sans 11
+	
+	format = "<b>%s</b>\n%b"
+	allow_markup = yes
+	geometry = "300x5-30+30"
+
+	# Sort messages by urgency.
+	sort = yes
+
+	# Alignment of message text.
+	alignment = center
+
+	bounce_freq = 0
+
+	# Padding
+	padding = 16
+	horizontal_padding = 16
+
+	# Split notifications into multiple lines if they don't fit into
+	# geometry.
+	word_wrap = yes
+
+	line_height = 0
+	separator_color = frame
+	separator_height = 2
+
+	idle_threshold = 120
+
+	monitor = 0
+	follow = none
+
+	sticky_history = yes
+	history_length = 20
+
+[frame]
+	width = 1
+	color = "#3C3C3C"
+
+[urgency_low]
+    background = "#313131"
+    foreground = "#B3B3B3"
+    timeout = 30
+
+[urgency_normal]
+    background = "#3C3C3C"
+    foreground = "#B3B3B3"
+    timeout = 45
+
+[urgency_critical]
+    background = "#A54242"
+    foreground = "#B3B3B3"
+    timeout = 0
