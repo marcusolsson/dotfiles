@@ -15,7 +15,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'fatih/vim-go'
 Plug 'Chiel92/vim-autoformat'
 Plug 'nvie/vim-flake8'
-
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'marijnh/tern_for_vim'
@@ -63,6 +62,7 @@ set hidden    	   " Hide buffers
 set lazyredraw     " Disable excessive redrawing.
 set scrolloff=5    " Keep lines above and below the cursor when scrolling.
 set sidescroll=1
+set autowrite 	   " Save on buffer switch.
 set fillchars=""   " Remove the vertical split separator.
 set breakindent    " keep wrapped lines indented
 set splitright               " Split vertical windows right to the current windows
@@ -142,20 +142,6 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 " PLUGINS
 " ------------------------------------------------------------------------------
 
-" Markdown
-autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown setlocal spell 
-
-" Go programming
-au FileType go nmap <leader>b :GoBuild<CR>
-au FileType go nmap <leader>c :GoCoverageToggle<CR>
-au FileType go nmap <leader>d :GoDoc<CR>
-au FileType go nmap <leader>t :GoTest<CR>
-
-let g:go_fmt_command="goimports"
-
-" Toggle between test and implementation
-nmap T :GoAlternate<CR>
-
 " UltiSnips
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
@@ -174,6 +160,22 @@ autocmd BufWrite *.py :Autoformat
 
 " Ag
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+" Markdown
+autocmd BufRead,BufNewFile *.md setlocal spell 
+
+" Go programming
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>d <Plug>(go-doc)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>i <Plug>(go-info)
+au FileType go nmap <leader>c <Plug>(go-coverage-toggle)
+
+let g:go_fmt_command="goimports"
+
+" Toggle between test and implementation
+nmap T :GoAlternate<CR>
 
 " Shell
 au BufRead,BufNewFile *.sh set makeprg=shellcheck\ -f\ gcc\ %
