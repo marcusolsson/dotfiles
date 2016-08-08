@@ -24,19 +24,52 @@ Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 
 call plug#end()
 
-set nocompatible
-filetype off
-filetype plugin indent on
 
-set ttyfast
-set ttymouse=xterm2
-set ttyscroll=3
+" SETTINGS
+" ------------------------------------------------------------------------------
 
+set nocompatible                " Enable vim-specific features
+filetype off                    " Reset filetype detection
+filetype plugin indent on       " Enable filetype detection
+set ttyfast                     " Indicate fast terminal conn for faster redraw
+set ttymouse=xterm2             " Indicate terminal type for mouse codes
+set ttyscroll=3                 " Speed up scrolling
+set laststatus=2                " Always show status line
 set encoding=utf-8              " Set default encoding to UTF-8
 set autoread                    " Automatically reread changed files without asking me anything
-set autoindent                  
-set backspace=indent,eol,start  " Makes backspace key more powerful.
-set incsearch                   " Shows the match while typing
+set autoindent                  " Automatically indent lines
+set breakindent                 " Keep wrapped lines indented
+set backspace=indent,eol,start  " Make backspace key more powerful.
+set incsearch                   " Show the match while typing
+set nohlsearch                  " Don't highlight matches
+set number                      " Display line numbers
+set noswapfile	                " Disable swap files.
+set nobackup                    " Don't create backups.
+set splitright                  " Split vertical windows right to the current windows
+set splitbelow                  " Split horizontal windows below to the current windows
+set autowrite 	                " Save on buffer switch.
+set hidden    	                " Hide buffers
+set ignorecase                  " Ignore case when searching.
+set smartcase                   " Only ignore case when search string is lowercase.
+set completeopt-=preview        " Disable preview window on autocomplete
+set pumheight=10                " Completion window max size
+set nocursorcolumn              " Do not highlight column
+set nocursorline                " Do not highlight line
+set nowrap    	                " Do not wrap long lines.
+set lazyredraw                  " Disable excessive redrawing.
+
+set re=1                        " Use old regex engine, faster for Go highlighting
+set sidescroll=1
+set fillchars=""                " Remove the vertical split separator.
+set history=1000
+set linespace=0
+set wildmenu                    " Visual auto-complete for command menu
+set mouse=a                     " Enable mouse support
+
+" These remove Esc delay
+set ttimeout
+set ttimeoutlen=50
+
 
 " COLORS
 " ------------------------------------------------------------------------------
@@ -47,48 +80,6 @@ set t_Co=256
 set background=dark
 colorscheme off
 
-" SETTINGS
-" ------------------------------------------------------------------------------
-
-set noswapfile	   " Disable swap files.
-set nobackup       " Don't create backups.
-set nocursorcolumn " do not highlight column
-set nocursorline   " do not highlight line
-set nowrap    	   " Do not wrap long lines.
-
-set re=1           " use old regex engine, faster for Go highlighting
-set number         " Display line numbers
-set hidden    	   " Hide buffers
-set lazyredraw     " Disable excessive redrawing.
-set scrolloff=5    " Keep lines above and below the cursor when scrolling.
-set sidescroll=1
-set autowrite 	   " Save on buffer switch.
-set fillchars=""   " Remove the vertical split separator.
-set breakindent    " keep wrapped lines indented
-set splitright               " Split vertical windows right to the current windows
-set splitbelow               " Split horizontal windows below to the current windows
-
-set history=1000
-set linespace=0
-
-set ignorecase     " Ignore case when searching.
-set smartcase      " Only ignore case when search string is lowercase.
-set nohlsearch     " Don't highlight matches
-
-set completeopt-=preview " Disable preview window on autocomplete
-
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-
-set laststatus=1
-set wildmenu       " Visual auto-complete for command menu
-set mouse=a        " Enable mouse support
-set pumheight=10             " Completion window max size
-
-" These remove Esc delay
-set ttimeout
-set ttimeoutlen=50
 
 " MAPPINGS
 " ------------------------------------------------------------------------------
@@ -124,11 +115,18 @@ vnoremap <Leader>d "+d
 
 map <leader>n :NERDTreeToggle<cr>
 
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 " Learn Vim!
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
 
 " COMPLETION
 " ------------------------------------------------------------------------------
@@ -138,6 +136,7 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:SuperTabDefaultCompletionType = '<C-n>'
+
 
 " PLUGINS
 " ------------------------------------------------------------------------------
@@ -158,21 +157,29 @@ autocmd BufWrite *.css :Autoformat
 autocmd BufWrite *.js :Autoformat
 autocmd BufWrite *.py :Autoformat
 
-" Ag
+" ag
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
-" Markdown
+" markdown
 autocmd BufRead,BufNewFile *.md setlocal spell 
 
-" Go programming
+" vim-go
+let g:go_fmt_command="goimports"
+
+" python
+au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab
+
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>d <Plug>(go-doc)
 au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>i <Plug>(go-info)
+au FileType go nmap <leader>d <Plug>(go-doc)
 au FileType go nmap <leader>c <Plug>(go-coverage-toggle)
+au FileType go nmap <leader>i <Plug>(go-info)
+au FileType go nmap <leader>l <Plug>(go-metalinter)
 
-let g:go_fmt_command="goimports"
+" Open :GoDeclsDir with ctrl-g
+nmap <C-g> :GoDeclsDir<cr>
+imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 
 " Toggle between test and implementation
 nmap T :GoAlternate<CR>
