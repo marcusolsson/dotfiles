@@ -15,7 +15,7 @@ antigen theme simple
 
 antigen apply
 
-. /usr/share/autojump/autojump.sh
+. /usr/share/autojump/autojump.zsh
 
 # Go
 export PATH=$PATH:/usr/local/go/bin
