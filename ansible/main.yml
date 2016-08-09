@@ -19,6 +19,9 @@
     - name: Install i3
       apt: name=i3 state=present
 
+    - name: Install i3blocks
+      apt: name=i3blocks state=present
+
     - name: Link i3 config
       file: src={{ playbook_dir }}/files/i3 dest=~/.i3 state=link force=yes
 
