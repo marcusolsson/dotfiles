@@ -57,3 +57,16 @@
 
     - name: Link dunstrc
       file: src={{ playbook_dir }}/files/dunst dest=~/.config/dunst state=link force=yes
+
+    - name: Install fonts
+      apt: name={{ item }} state=present
+      with_items:
+        - fonts-noto
+        - fonts-inconsolata
+        - fonts-font-awesome
+
+    - name: Install lxappearance
+      apt: name=lxappearance state=present
+
+    - name: Install Blackbird theme
+      git: repo=https://github.com/shimmerproject/Blackbird.git dest=/usr/share/themes/Blackbird
