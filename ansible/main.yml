@@ -3,6 +3,7 @@
   tasks:
     - name: Install ZSH
       apt: name=zsh state=present
+      sudo: yes
           
     - name: Fetch antigen
       git: repo=https://github.com/zsh-users/antigen.git dest={{ playbook_dir }}/antigen
@@ -12,15 +13,17 @@
 
     - name: Install vim
       apt: name=vim state=present
+      sudo: yes
       
     - name: Copy vim config
       file: src={{ playbook_dir }}/files/vimrc dest=~/.vimrc state=link force=yes
 
     - name: Install i3
-      apt: name=i3 state=present
-
-    - name: Install i3blocks
-      apt: name=i3blocks state=present
+      apt: name={{ item }} state=present
+      with_items:
+        - i3
+        - i3blocks
+      sudo: yes
 
     - name: Link i3 config
       file: src={{ playbook_dir }}/files/i3 dest=~/.i3 state=link force=yes
@@ -33,12 +36,14 @@
 
     - name: Install git
       apt: name=git state=present
+      sudo: yes
           
     - name: Link git config
       file: src={{ playbook_dir }}/files/gitconfig dest=~/.gitconfig state=link force=yes
 
     - name: Install URxvt
       apt: name=rxvt-unicode-256color state=present
+      sudo: yes
 
     - name: Link URxvt extensions
       file: src={{ playbook_dir }}/files/urxvt dest=~/.urxvt state=link force=yes
@@ -54,6 +59,7 @@
 
     - name: Install dunst
       apt: name=dunst state=present
+      sudo: yes
 
     - name: Link dunstrc
       file: src={{ playbook_dir }}/files/dunst dest=~/.config/dunst state=link force=yes
@@ -64,9 +70,16 @@
         - fonts-noto
         - fonts-inconsolata
         - fonts-font-awesome
+      sudo: yes
+
+    - name: Install murrine engine
+      apt: name=gtk2-engines-murrine state=present
+      sudo: yes
 
     - name: Install lxappearance
       apt: name=lxappearance state=present
+      sudo: yes
 
     - name: Install Blackbird theme
       git: repo=https://github.com/shimmerproject/Blackbird.git dest=/usr/share/themes/Blackbird
+      sudo: yes
