@@ -1,0 +1,15 @@
+- name: Install i3
+  apt: name={{ item }} state=present
+  with_items:
+    - i3
+    - i3blocks
+  become: yes
+
+- name: Link i3 config
+  file: src={{ role_path }}/files/i3 dest=~/.i3 state=link force=yes
+
+- name: Link i3status.conf
+  file: src={{ role_path }}/files/i3status.conf dest=~/.i3status.conf state=link force=yes
+
+- name: Link i3blocks.conf
+  file: src={{ role_path }}/files/i3blocks.conf dest=~/.i3blocks.conf state=link force=yes

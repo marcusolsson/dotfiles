@@ -1,5 +1,0 @@
----
-dotfiles_repo: "https://github.com/marcusolsson/dotfiles.git"
-dotfiles_repo_destination: ~/dotfiles
-
-dotfiles_home: "~"

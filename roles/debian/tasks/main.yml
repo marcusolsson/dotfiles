@@ -1,0 +1,24 @@
+- name: Link Xresources
+  file: src={{ role_path }}/files/Xresources dest=~/.Xresources state=link force=yes
+
+- name: Link xsessionrc
+  file: src={{ role_path }}/files/xsessionrc dest=~/.xsessionrc state=link force=yes
+
+- name: Link inputrc
+  file: src={{ role_path }}/files/inputrc dest=~/.inputrc state=link force=yes
+
+- name: Install fonts
+  apt: name={{ item }} state=present
+  with_items:
+    - fonts-noto
+    - fonts-inconsolata
+    - fonts-font-awesome
+  become: yes
+
+- name: Install lxappearance
+  apt: name=lxappearance state=present
+  become: yes
+
+- name: Install Blackbird theme
+  git: repo=https://github.com/shimmerproject/Blackbird.git dest=/usr/share/themes/Blackbird
+  become: yes

@@ -1,0 +1,6 @@
+- name: Install vim
+  apt: name=vim state=present
+  become: yes
+  
+- name: Copy vim config
+  file: src={{ role_path }}/files/vimrc dest=~/.vimrc state=link force=yes
