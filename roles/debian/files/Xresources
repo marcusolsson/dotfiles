@@ -22,7 +22,7 @@ rofi.fuzzy: true
 
 URxvt.termName: rxvt-256color
 
-URxvt*cursorBlink: false
+URxvt*cursorBlink: true
 URxvt*scrollBar:   false
 URxvt*saveLines:   10000
 

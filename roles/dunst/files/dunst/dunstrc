@@ -9,7 +9,7 @@
 	sort = yes
 
 	# Alignment of message text.
-	alignment = center
+	alignment = left
 
 	bounce_freq = 0
 
@@ -21,17 +21,19 @@
 	# geometry.
 	word_wrap = yes
 
-	line_height = 0
-	separator_color = frame
-	separator_height = 2
 
-	idle_threshold = 120
+	idle_threshold = 0
 
 	monitor = 0
 	follow = none
 
 	sticky_history = yes
 	history_length = 20
+
+	show_indicators = yes
+	line_height = 0
+	separator_color = frame
+	separator_height = 2
 
 [frame]
 	width = 1
@@ -40,12 +42,12 @@
 [urgency_low]
     background = "#313131"
     foreground = "#B3B3B3"
-    timeout = 30
+    timeout = 3
 
 [urgency_normal]
     background = "#3C3C3C"
     foreground = "#B3B3B3"
-    timeout = 45
+    timeout = 5
 
 [urgency_critical]
     background = "#A54242"

@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  roles:
+    - compton
+    - debian
+    - dunst
+    - git
+    - i3
+    - urxvt
+    - vim
+    - zsh
