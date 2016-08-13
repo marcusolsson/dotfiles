@@ -1,0 +1,15 @@
+- name: Install Python
+  apt: name={{ item }} state=present
+  with_items:
+    - python
+    - python-pip
+    - python3
+    - python3-pip
+
+- name: Install virtualenv
+  pip: name={{ item }} state=present
+  with_items:
+    - virtualenv
+    - virtualenvwrapper
+  environment:
+    PIP_REQUIRE_VIRTUALENV: false

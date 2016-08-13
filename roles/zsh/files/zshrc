@@ -5,6 +5,7 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle ssh-agent
 antigen bundle pass
+antigen bundle virtualenvwrapper
 
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -26,3 +27,8 @@ export VISUAL=vim
 export EDITOR=vim
 export TERMINAL=urxvtc
 export BROWSER=google-chrome
+
+# Python
+export PIP_REQUIRE_VIRTUALENV=true
+export VIRTUALENV_PYTHON=python3
+export WORKON_HOME=~/.virtualenvs

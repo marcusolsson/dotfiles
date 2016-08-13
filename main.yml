@@ -1,11 +1,12 @@
 ---
 - hosts: localhost
   roles:
-    - compton
     - debian
-    - dunst
     - git
+    - python
     - i3
     - urxvt
-    - vim
     - zsh
+    - vim
+    - compton
+    - dunst
