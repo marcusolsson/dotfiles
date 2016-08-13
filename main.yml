@@ -4,6 +4,7 @@
     - debian
     - git
     - python
+    - go
     - i3
     - urxvt
     - zsh
