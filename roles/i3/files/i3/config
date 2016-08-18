@@ -1,0 +1,232 @@
+set $mod Mod4
+
+font pango:Noto Sans, FontAwesome 12
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# follow mouse
+focus_follows_mouse yes
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# cycle workspaces
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# browser pop-ups
+for_window [window_role="pop-up"] floating enable,move absolute center
+for_window [class="Pavucontrol"] floating enable,move absolute center
+for_window [class="Nitrogen"] floating enable,move absolute center
+
+# handle popups
+popup_during_fullscreen smart
+
+# borders
+new_window 1pixel
+new_float 1pixel
+
+bindsym $mod+b border toggle
+
+# split in horizontal orientation
+bindsym $mod+c split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout toggle split
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout default
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+d focus child
+
+set $ws1 1 
+set $ws2 2 
+set $ws3 3 
+set $ws4 4 
+set $ws5 5 
+set $ws6 6 
+set $ws7 7 
+set $ws8 8 
+set $ws9 9 
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace number 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+bindsym $mod+n exec rename_workspace.sh
+bindsym $mod+Return exec i3-shell.sh
+
+#bindsym $mod+p exec dmenu_run
+bindsym $mod+p exec rofi -show run
+
+bindsym $mod+Shift+p exec --no-startup-id "chromium --profile-directory='Default'"
+bindsym $mod+Shift+w exec --no-startup-id "chromium --profile-directory='Profile 1'"
+
+# media keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 1+"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 1-"
+bindsym XF86AudioMute        exec --no-startup-id "amixer set Master toggle"
+
+# monitor brightness
+bindsym XF86MonBrightnessUp   exec xbacklight -inc 10 -time 500 -steps 100
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 -time 500 -steps 100
+bindsym XF86Display           exec xrandr --auto
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# system actions
+set $mode_system system (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode "$mode_system"
+
+# scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# Color palette from base16 Tomorrow Night
+set $background #262626
+set $foreground #C5C8C6
+# black
+set $color0 #282A2E
+set $color8 #373B41
+# red
+set $color1 #A54242
+set $color9 #CC6666
+# green
+set $color2 #8C9440
+set $color10 #B5BD68
+# yellow
+set $color3 #DE935F
+set $color11 #F0C674
+# blue
+set $color4 #5F819D
+set $color12 #81A2BE
+# magenta
+set $color5 #85678F
+set $color13 #B294BB
+# cyan
+set $color6 #5E8D87
+set $color14 #8ABEB7
+# white
+set $color7 #707880
+set $color15 #C5C8C6
+
+# Grey colors
+
+set $grey0 #262626
+set $grey1 #313131
+set $grey2 #3C3C3C
+set $grey3 #474747
+set $grey4 #515151
+set $grey5 #5C5C5C
+set $grey6 #676767
+set $grey7 #727272
+set $grey8 #7D7D7D
+set $grey9 #888888
+set $grey10 #939393
+set $grey11 #9D9D9D
+set $grey12 #A8A8A8
+set $grey13 #B3B3B3
+
+# Window colors
+# class                 border  backgr. text    indicator
+client.focused          $grey1  $grey1  $grey13 $grey13
+client.focused_inactive $grey0  $grey0  $grey4  $grey4
+client.unfocused        $grey0  $grey0  $grey4  $grey4
+client.urgent           $grey0  $grey0  $grey4  $grey4
+
+# Status bar colors
+bar {
+  status_command i3blocks
+  position top
+  strip_workspace_numbers yes
+  colors {
+    background $grey0
+    statusline $grey10
+
+    # class             border  backgr. text
+    focused_workspace   $grey3  $grey3  $grey13
+    active_workspace    $grey1  $grey1  $grey5
+    inactive_workspace  $grey1  $grey1  $grey5
+    urgent_workspace    $grey1  $grey1  $color1
+  }
+}
+
+exec_always --no-startup-id hotplug.sh
+exec_always --no-startup-id compton --config ~/dotfiles/.compton.conf
+exec --no-startup-id redshift-gtk -l 59.17:18.3

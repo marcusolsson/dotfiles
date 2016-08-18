@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  roles:
+    - debian
+    - git
+    - python
+    - go
+    - i3
+    - urxvt
+    - zsh
+    - vim
+    - compton
+    - dunst
+    - rofi

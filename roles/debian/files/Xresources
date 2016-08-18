@@ -1,0 +1,104 @@
+! Xft
+Xft*dpi:       110
+Xft*antialias: true
+Xft*rgba:      rgb
+Xft*lcdfilter: lcddefault
+Xft*hinting:   true
+Xft*hintstyle: hintfull
+
+rofi.font: Noto Sans 18
+rofi.fg: #B3B3B3
+rofi.bg: #313131
+rofi.hlfg: #313131
+rofi.hlbg: #B3B3B3
+rofi.bc: #3C3C3C
+rofi.bw: 1
+rofi.lines: 3
+rofi.width: 30
+rofi.separator-style: none
+rofi.hide-scrollbar: true
+rofi.padding: 18
+rofi.fuzzy: true
+
+URxvt.termName: rxvt-256color
+
+URxvt*cursorBlink: false
+URxvt*scrollBar:   false
+URxvt*saveLines:   10000
+
+! Change font size. Useful for presentations.
+URxvt.perl-ext-common: font-size,clipboard
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
+URxvt.font-size.step:  4
+
+! Copy/paste
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.clipboard.copycmd:  xclip -i -selection clipboard
+URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+
+! Fonts
+URxvt.font:     xft:Inconsolata:Bold:pixelsize=18
+URxvt.letterSpace: -2
+
+! Do not scroll with output.
+URxvt*scrollTtyOutput:      false
+
+! Scroll in relation to buffer (with mouse scroll or Shift+Page Up).
+URxvt*scrollWithBuffer:     true
+
+! Scroll back to the bottom on keypress.
+URxvt*scrollTtyKeypress:    true
+
+! Disables the insanely annoying Ctrl+Shift shortcut that enters ISO14755 mode.
+URxvt.iso14755:         False
+
+!#define Ansi_0_Color #000000
+#define Ansi_0_Color #262626
+#define Ansi_1_Color #cc6666
+#define Ansi_10_Color #b5bd68
+#define Ansi_11_Color #f0c674
+#define Ansi_12_Color #81a2be
+#define Ansi_13_Color #b294bb
+#define Ansi_14_Color #8abeb7
+#define Ansi_15_Color #ffffff
+#define Ansi_2_Color #b5bd68
+#define Ansi_3_Color #f0c674
+#define Ansi_4_Color #81a2be
+#define Ansi_5_Color #b294bb
+#define Ansi_6_Color #8abeb7
+#define Ansi_7_Color #ffffff
+!#define Ansi_8_Color #000000
+#define Ansi_8_Color #565656
+#define Ansi_9_Color #cc6666
+!#define Background_Color #1d1f21
+#define Background_Color #262626
+#define Bold_Color #c5c8c6
+#define Cursor_Color #c5c8c6
+#define Cursor_Text_Color #1d1f21
+#define Foreground_Color #c5c8c6
+#define Selected_Text_Color #c5c8c6
+#define Selection_Color #373b41
+
+URxvt*color0:       Ansi_0_Color
+URxvt*color1:       Ansi_1_Color
+URxvt*color2:       Ansi_2_Color
+URxvt*color3:       Ansi_3_Color
+URxvt*color4:       Ansi_4_Color
+URxvt*color5:       Ansi_5_Color
+URxvt*color6:       Ansi_6_Color
+URxvt*color7:       Ansi_7_Color
+URxvt*color8:       Ansi_8_Color
+URxvt*color9:       Ansi_9_Color
+URxvt*color10:      Ansi_10_Color
+URxvt*color11:      Ansi_11_Color
+URxvt*color12:      Ansi_12_Color
+URxvt*color13:      Ansi_13_Color
+URxvt*color14:      Ansi_14_Color
+URxvt*color15:      Ansi_15_Color
+URxvt*foreground:   Foreground_Color
+URxvt*background:   Background_Color
+URxvt*cursorColor:  Cursor_Color

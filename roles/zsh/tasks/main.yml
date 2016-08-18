@@ -1,0 +1,9 @@
+- name: Install ZSH
+  apt: name=zsh state=present
+  become: yes
+  
+- name: Fetch antigen
+  git: repo=https://github.com/zsh-users/antigen.git dest={{ playbook_dir }}/antigen
+
+- name: Copy ZSH config
+  file: src={{ role_path }}/files/zshrc dest=~/.zshrc state=link force=yes

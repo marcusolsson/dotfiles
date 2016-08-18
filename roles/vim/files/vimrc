@@ -1,0 +1,191 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-commentary'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'rking/ag.vim'
+Plug 'pbrisbin/vim-colors-off'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'SirVer/ultisnips'
+Plug 'ervandew/supertab'
+Plug 'jiangmiao/auto-pairs'
+Plug 'fatih/vim-go'
+Plug 'Chiel92/vim-autoformat'
+Plug 'nvie/vim-flake8'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'marijnh/tern_for_vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'elzr/vim-json', {'for' : 'json'}
+Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
+
+call plug#end()
+
+
+" SETTINGS
+" ------------------------------------------------------------------------------
+
+set nocompatible                " Enable vim-specific features
+filetype off                    " Reset filetype detection
+filetype plugin indent on       " Enable filetype detection
+set ttyfast                     " Indicate fast terminal conn for faster redraw
+set ttymouse=xterm2             " Indicate terminal type for mouse codes
+set ttyscroll=3                 " Speed up scrolling
+set laststatus=2                " Always show status line
+set encoding=utf-8              " Set default encoding to UTF-8
+set autoread                    " Automatically reread changed files without asking me anything
+set autoindent                  " Automatically indent lines
+set breakindent                 " Keep wrapped lines indented
+set backspace=indent,eol,start  " Make backspace key more powerful.
+set incsearch                   " Show the match while typing
+set nohlsearch                  " Don't highlight matches
+set number                      " Display line numbers
+set noswapfile	                " Disable swap files.
+set nobackup                    " Don't create backups.
+set splitright                  " Split vertical windows right to the current windows
+set splitbelow                  " Split horizontal windows below to the current windows
+set autowrite 	                " Save on buffer switch.
+set hidden    	                " Hide buffers
+set ignorecase                  " Ignore case when searching.
+set smartcase                   " Only ignore case when search string is lowercase.
+set completeopt-=preview        " Disable preview window on autocomplete
+set pumheight=10                " Completion window max size
+set nocursorcolumn              " Do not highlight column
+set nocursorline                " Do not highlight line
+set nowrap    	                " Do not wrap long lines.
+set lazyredraw                  " Disable excessive redrawing.
+
+set re=1                        " Use old regex engine, faster for Go highlighting
+set sidescroll=1
+set fillchars=""                " Remove the vertical split separator.
+set history=1000
+set linespace=0
+set wildmenu                    " Visual auto-complete for command menu
+set mouse=a                     " Enable mouse support
+
+" These remove Esc delay
+set ttimeout
+set ttimeoutlen=50
+
+
+" COLORS
+" ------------------------------------------------------------------------------
+
+syntax enable
+set t_Co=256
+
+set background=dark
+colorscheme off
+
+
+" MAPPINGS
+" ------------------------------------------------------------------------------
+
+let mapleader=","
+
+" Remap H and L (top, bottom of screen to left and right end of line)
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L g_
+
+" Visual linewise up and down by default
+noremap j gj
+noremap k gk
+
+" Have the indent commands re-highlight the last visual selection to make
+" multiple indentations easier
+vnoremap > >gv
+vnoremap < <gv
+
+let loaded_matchparen = 1 
+let g:netrw_banner=0 
+
+" Switch between last two buffers
+nnoremap <leader><leader> <C-^>
+
+" System clipboard
+nnoremap <Leader>p "+]p
+nnoremap <Leader>P "+]P
+vnoremap <Leader>y "+y
+vnoremap <Leader>d "+d
+
+map <leader>n :NERDTreeToggle<cr>
+
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Learn Vim!
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+
+" COMPLETION
+" ------------------------------------------------------------------------------
+
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+
+" PLUGINS
+" ------------------------------------------------------------------------------
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" CtrlP
+let g:ctrlp_working_path_mode = 'ra'
+
+nmap <C-b> :CtrlPBuffer<CR>
+
+autocmd BufWrite *.ngt :Autoformat
+autocmd BufWrite *.html :Autoformat
+autocmd BufWrite *.css :Autoformat
+autocmd BufWrite *.js :Autoformat
+autocmd BufWrite *.py :Autoformat
+
+" ag
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+" markdown
+autocmd BufRead,BufNewFile *.md setlocal spell 
+
+" vim-go
+let g:go_fmt_command="goimports"
+
+" python
+au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab
+
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>d <Plug>(go-doc)
+au FileType go nmap <leader>c <Plug>(go-coverage-toggle)
+au FileType go nmap <leader>i <Plug>(go-info)
+au FileType go nmap <leader>l <Plug>(go-metalinter)
+
+" Open :GoDeclsDir with ctrl-g
+nmap <C-g> :GoDeclsDir<cr>
+imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
+
+" Toggle between test and implementation
+nmap T :GoAlternate<CR>
+
+" Shell
+au BufRead,BufNewFile *.sh set makeprg=shellcheck\ -f\ gcc\ %
+au BufWritePost *.sh :silent make | redraw!
+au QuickFixCmdPost [^l]* nested cwindow
+au QuickFixCmdPost    l* nested lwindow
