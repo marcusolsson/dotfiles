@@ -34,3 +34,4 @@ light-locker &
 # start terminal daemon
 urxvtd -q -o -f
 
+compton -b
