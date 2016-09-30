@@ -12,12 +12,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'branch': 'vim-8.0'  }
 Plug 'Chiel92/vim-autoformat'
 Plug 'nvie/vim-flake8'
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'marijnh/tern_for_vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'elzr/vim-json', {'for' : 'json'}
 Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
@@ -150,12 +148,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:ctrlp_working_path_mode = 'ra'
 
 nmap <C-b> :CtrlPBuffer<CR>
-
-autocmd BufWrite *.ngt :Autoformat
-autocmd BufWrite *.html :Autoformat
-autocmd BufWrite *.css :Autoformat
-autocmd BufWrite *.js :Autoformat
-autocmd BufWrite *.py :Autoformat
 
 " ag
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
