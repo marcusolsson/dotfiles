@@ -1,5 +1,17 @@
+- name: Get vim
+  get_url: url=https://github.com/vim/vim/archive/v{{ version }}.tar.gz dest=/usr/src/vim-{{ version }}.tar.gz validate_certs=False
+  become: yes
+
+- name: Unarchive vim
+  unarchive: src=/usr/src/vim-{{ version }}.tar.gz dest=/tmp copy=no
+  become: yes
+
+- name: Build vim
+  shell: make chdir=/tmp/vim-{{ version }}
+  become: yes
+
 - name: Install vim
-  apt: name=vim state=present
+  shell: make install chdir=/tmp/vim-{{ version }}
   become: yes
   
 - name: Copy vim config
