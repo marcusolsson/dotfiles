@@ -15,6 +15,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'fatih/vim-go', { 'branch': 'vim-8.0'  }
 Plug 'Chiel92/vim-autoformat'
 Plug 'nvie/vim-flake8'
+Plug 'maralla/completor.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'Valloric/YouCompleteMe'
 Plug 'elzr/vim-json', {'for' : 'json'}
@@ -185,3 +186,5 @@ au BufRead,BufNewFile *.sh set makeprg=shellcheck\ -f\ gcc\ %
 au BufWritePost *.sh :silent make | redraw!
 au QuickFixCmdPost [^l]* nested cwindow
 au QuickFixCmdPost    l* nested lwindow
+
+let g:completor_go_omni_trigger = '(?:\b[^\W\d]\w*|[\]\)])\.(?:[^\W\d]\w*)?'
