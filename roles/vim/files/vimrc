@@ -161,6 +161,10 @@ let g:go_fmt_command="goimports"
 " python
 au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab
 
+" C++
+au BufNewFile,BufRead *.h,*.cpp set ts=2 sts=2 sw=2 tw=79 noexpandtab
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>t <Plug>(go-test)
