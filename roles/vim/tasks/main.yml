@@ -6,6 +6,10 @@
   unarchive: src=/usr/src/vim-{{ version }}.tar.gz dest=/tmp copy=no
   become: yes
 
+- name: Configure vim
+  shell: ./configure --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu chdir=/tmp/vim-{{ version }}
+  become: yes
+
 - name: Build vim
   shell: make chdir=/tmp/vim-{{ version }}
   become: yes
