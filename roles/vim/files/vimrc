@@ -12,11 +12,12 @@ Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
-Plug 'fatih/vim-go', { 'branch': 'vim-8.0'  }
+Plug 'fatih/vim-go', {'branch' : 'vim-8.0'}
 Plug 'Chiel92/vim-autoformat'
 Plug 'nvie/vim-flake8'
 Plug 'maralla/completor.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'ElmCast/elm-vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'elzr/vim-json', {'for' : 'json'}
 Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
@@ -79,7 +80,6 @@ set t_Co=256
 set background=dark
 colorscheme off
 
-
 " MAPPINGS
 " ------------------------------------------------------------------------------
 
@@ -112,7 +112,10 @@ nnoremap <Leader>P "+]P
 vnoremap <Leader>y "+y
 vnoremap <Leader>d "+d
 
-map <leader>n :NERDTreeToggle<cr>
+" NERDTree
+noremap <Leader>n :NERDTreeToggle<cr>
+noremap <Leader>f :NERDTreeFind<cr>
+let NERDTreeShowHidden=1
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -140,6 +143,8 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 " PLUGINS
 " ------------------------------------------------------------------------------
 
+let g:vim_json_syntax_conceal = 0
+
 " UltiSnips
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
@@ -153,17 +158,18 @@ nmap <C-b> :CtrlPBuffer<CR>
 " ag
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
-" markdown
-autocmd BufRead,BufNewFile *.md setlocal spell 
+" language indentation
+au BufNewFile,BufRead *.md      setlocal spell
+au BufNewFile,BufRead *.go      setlocal ts=4 sw=4 sts=4 tw=79 noexpandtab
+au BufNewFile,BufRead *.h,*.cpp setlocal ts=2 sw=2 sts=2 tw=79 noexpandtab
+au BufNewFile,BufRead *.py      setlocal ts=4 sw=4 sts=4 tw=79 expandtab
+au BufNewFile,BufRead *.elm     setlocal ts=2 sw=2 sts=2 expandtab
+au BufNewFile,BufRead *.purs    setlocal ts=2 sw=2 sts=2 expandtab
 
 " vim-go
 let g:go_fmt_command="goimports"
 
-" python
-au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab
-
 " C++
-au BufNewFile,BufRead *.h,*.cpp set ts=2 sts=2 sw=2 tw=79 noexpandtab
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 
 au FileType go nmap <leader>b <Plug>(go-build)
