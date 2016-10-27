@@ -5,6 +5,7 @@
     - python-pip
     - python3
     - python3-pip
+  become: yes
 
 - name: Install virtualenv
   pip: name={{ item }} state=present
@@ -13,3 +14,4 @@
     - virtualenvwrapper
   environment:
     PIP_REQUIRE_VIRTUALENV: false
+  become: yes
