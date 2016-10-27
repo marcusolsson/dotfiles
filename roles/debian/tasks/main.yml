@@ -19,6 +19,35 @@
   apt: name=lxappearance state=present
   become: yes
 
+- name: Install GTK engine
+  apt: name=gtk2-engines-murrine state=present
+  become: yes
+
 - name: Install Blackbird theme
   git: repo=https://github.com/shimmerproject/Blackbird.git dest=/usr/share/themes/Blackbird
+  become: yes
+
+- name: Install pulseaudio
+  apt: name={{ item }} state=present
+  with_items:
+    - pulseaudio
+    - pavucontrol
+    - pasystray
+  become: yes
+
+- name: Install misc utilities
+  apt: name={{ item }} state=present
+  with_items:
+    - libncurses5-dev
+    - curl
+    - jq
+    - htop
+    - redshift
+    - redshift-gtk
+    - network-manager
+    - network-manager-gnome
+    - light-locker
+    - thunar
+    - nitrogen
+    - x11-xserver-utils
   become: yes
