@@ -15,7 +15,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'fatih/vim-go', {'branch' : 'vim-8.0'}
 Plug 'Chiel92/vim-autoformat'
 Plug 'nvie/vim-flake8'
-Plug 'maralla/completor.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'ElmCast/elm-vim'
 Plug 'Valloric/YouCompleteMe'
@@ -163,11 +162,17 @@ au BufNewFile,BufRead *.md      setlocal spell
 au BufNewFile,BufRead *.go      setlocal ts=4 sw=4 sts=4 tw=79 noexpandtab
 au BufNewFile,BufRead *.h,*.cpp setlocal ts=2 sw=2 sts=2 tw=79 noexpandtab
 au BufNewFile,BufRead *.py      setlocal ts=4 sw=4 sts=4 tw=79 expandtab
-au BufNewFile,BufRead *.elm     setlocal ts=2 sw=2 sts=2 expandtab
+au BufNewFile,BufRead *.elm     setlocal ts=4 sw=4 sts=4 expandtab
 au BufNewFile,BufRead *.purs    setlocal ts=2 sw=2 sts=2 expandtab
 
 " vim-go
 let g:go_fmt_command="goimports"
+
+" Elm
+let g:elm_format_autosave = 1
+let g:ycm_semantic_triggers = {
+     \ 'elm' : ['.'],
+     \}
 
 " C++
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
@@ -193,4 +198,3 @@ au BufWritePost *.sh :silent make | redraw!
 au QuickFixCmdPost [^l]* nested cwindow
 au QuickFixCmdPost    l* nested lwindow
 
-let g:completor_go_omni_trigger = '(?:\b[^\W\d]\w*|[\]\)])\.(?:[^\W\d]\w*)?'
