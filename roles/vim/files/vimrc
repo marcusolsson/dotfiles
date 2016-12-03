@@ -12,7 +12,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
-Plug 'fatih/vim-go', {'branch' : 'vim-8.0'}
+Plug 'fatih/vim-go'
 Plug 'Chiel92/vim-autoformat'
 Plug 'nvie/vim-flake8'
 Plug 'pangloss/vim-javascript'
