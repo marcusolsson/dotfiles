@@ -20,6 +20,7 @@ Plug 'ElmCast/elm-vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'elzr/vim-json', {'for' : 'json'}
 Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
+Plug 'marcusolsson/vim-colors-paramount'
 
 call plug#end()
 
@@ -33,7 +34,7 @@ filetype plugin indent on       " Enable filetype detection
 set ttyfast                     " Indicate fast terminal conn for faster redraw
 set ttymouse=xterm2             " Indicate terminal type for mouse codes
 set ttyscroll=3                 " Speed up scrolling
-set laststatus=2                " Always show status line
+set laststatus=1                " Always show status line
 set encoding=utf-8              " Set default encoding to UTF-8
 set autoread                    " Automatically reread changed files without asking me anything
 set autoindent                  " Automatically indent lines
@@ -41,7 +42,7 @@ set breakindent                 " Keep wrapped lines indented
 set backspace=indent,eol,start  " Make backspace key more powerful.
 set incsearch                   " Show the match while typing
 set nohlsearch                  " Don't highlight matches
-set number                      " Display line numbers
+"set number                      " Display line numbers
 set noswapfile	                " Disable swap files.
 set nobackup                    " Don't create backups.
 set splitright                  " Split vertical windows right to the current windows
@@ -77,10 +78,12 @@ syntax enable
 set t_Co=256
 
 set background=dark
-colorscheme off
+colorscheme paramount
 
 " MAPPINGS
 " ------------------------------------------------------------------------------
+
+:imap jk <Esc>
 
 let mapleader=","
 
