@@ -1,6 +1,0 @@
-- name: Install URxvt
-  apt: name=rxvt-unicode-256color state=present
-  become: yes
-
-- name: Link URxvt extensions
-  file: src={{ role_path }}/files/urxvt dest=~/.urxvt state=link force=yes

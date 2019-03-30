@@ -1,6 +1,0 @@
-- name: Install dunst
-  apt: name=dunst state=present
-  become: yes
-
-- name: Link dunstrc
-  file: src={{ role_path }}/files/dunst dest=~/.config/dunst state=link force=yes

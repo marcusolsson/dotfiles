@@ -1,6 +1,0 @@
-- name: Install git
-  apt: name=git state=present
-  become: yes
-      
-- name: Link git config
-  file: src={{ role_path }}/files/gitconfig dest=~/.gitconfig state=link force=yes

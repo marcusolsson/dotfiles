@@ -1,6 +1,0 @@
-- name: Install compton
-  apt: name=compton state=present
-  become: yes
-
-- name: Link compton config
-  file: src={{ role_path }}/files/compton.conf dest=~/.compton.conf state=link force=yes
