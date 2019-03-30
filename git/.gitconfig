@@ -1,0 +1,22 @@
+[user]
+	name = Marcus Olsson
+	email = olsson.e.marcus@gmail.com
+
+[alias]
+	st = status -s
+	ci = commit
+
+[fetch]
+  prune = true
+
+[push]
+	default = simple
+
+[pull]
+	rebase = true
+
+[color]
+	ui = auto
+
+[credential]
+	helper = osxkeychain
