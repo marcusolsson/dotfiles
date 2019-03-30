@@ -8,6 +8,7 @@ brew install            \
     kubectx             \
     kubernetes-cli      \
     neovim              \
+    pipenv              \
     pyenv               \
     pyenv-virtualenv    \
     stow                \
