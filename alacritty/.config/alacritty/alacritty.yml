@@ -444,7 +444,8 @@ key_bindings:
   - { key: L, mods: Command, chars: "\x02\x1b[C"  }
   - { key: Left, mods: Command, chars: "\x02\x70"  }
   - { key: Right, mods: Command, chars: "\x02\x6e"  }
-  - { key: R, mods: Command, chars: "\x02\x2c"  }
+  - { key: N, mods: Command, chars: "\x02\x2c"  }
+  - { key: E, mods: Command, chars: "\x02\x64"  }
   #- { key: Key0,   mods: Command, action: ResetFontSize    }
   #- { key: Equals, mods: Command, action: IncreaseFontSize }
   #- { key: Minus,  mods: Command, action: DecreaseFontSize }
