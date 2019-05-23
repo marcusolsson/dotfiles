@@ -46,3 +46,9 @@ eval "$(jump shell)"
 # Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+
+if [[ "$TERM" != "screen-256color" ]]
+then
+        tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+fi
+
