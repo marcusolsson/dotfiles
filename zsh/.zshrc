@@ -8,8 +8,10 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen theme simple
 antigen apply
 
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US.UTF-8"
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LC_LANG=en_US.UTF-8
 
 # zsh
 HISTFILE=$HOME/.zsh_history
@@ -17,7 +19,8 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 # Vim
-export EDITOR="vim"
+export EDITOR=nvim
+export VISUAL=nvim
 
 alias vi='nvim'
 alias vim='nvim'
@@ -46,9 +49,3 @@ eval "$(jump shell)"
 # Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
-
-if [[ "$TERM" != "screen-256color" ]]
-then
-        tmux attach-session -t "$USER" || tmux new-session -s "$USER"
-fi
-
