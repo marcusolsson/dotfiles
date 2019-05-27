@@ -9,6 +9,17 @@
   st = status -s
   ci = commit
   co = checkout
+  lg = log --color --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an (%G?)>%Creset' --abbrev-commit
+  d = diff
+  unstage = reset HEAD --
+  discard = checkout --
+
+[apply]
+  whitespace = fix
+
+[core]
+  whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+  editor = nvim
 
 [fetch]
   prune = true

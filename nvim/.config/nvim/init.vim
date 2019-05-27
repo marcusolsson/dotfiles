@@ -23,6 +23,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
@@ -37,10 +38,12 @@ set autoread
 set autowrite
 set completeopt-=preview
 set expandtab
+set foldenable
 set hidden
 set ignorecase
 set incsearch
 set lazyredraw
+set mouse=a
 set nobackup
 set nocursorcolumn
 set nocursorline
@@ -66,7 +69,9 @@ let mapleader = ","
 
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 autocmd BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
-autocmd BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
+autocmd BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2 sts=2 tw=79
+
+let g:vim_json_syntax_conceal = 0
 
 " Search
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -81,6 +86,7 @@ let g:go_fmt_command = "goimports"
 let g:go_def_mode = "gopls"
 let g:go_info_mode = "gopls"
 let g:go_metalinter_enabled = ["vet", "golint"]
+let g:go_autodetect_gopath = 1
 
 nmap gt :GoDefType<CR>
 nmap T :GoAlternate<CR>

@@ -3,10 +3,10 @@
 ## Installation
 
 ```
-./brew.sh
+brew bundle
 ```
 
-... or just `brew install stow`
+Followed by
 
 ```
 ./bootstrap.sh

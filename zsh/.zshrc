@@ -25,6 +25,12 @@ export VISUAL=nvim
 alias vi='nvim'
 alias vim='nvim'
 
+alias g="git"
+alias l="ls -lhF -G"
+alias la="ls -lahF -G"
+alias map="xargs -n1"
+alias untar='tar xvf'
+
 # Kubernetes
 source <(kubectl completion zsh)
 
