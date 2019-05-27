@@ -1,5 +1,7 @@
 #!/bin/bash
 
+brew cask install alacritty
+
 brew install            \
     direnv              \
     git                 \
