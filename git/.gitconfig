@@ -1,22 +1,24 @@
 [user]
-	name = Marcus Olsson
-	email = olsson.e.marcus@gmail.com
+  name = Marcus Olsson
+  email = olsson.e.marcus@gmail.com
+
+[merge]
+  ff = only
 
 [alias]
-	st = status -s
-	ci = commit
+  st = status -s
+  ci = commit
+  co = checkout
 
 [fetch]
   prune = true
 
 [push]
-	default = simple
+  default = simple
 
 [pull]
-	rebase = true
+  rebase = true
 
 [color]
-	ui = auto
+  ui = auto
 
-[credential]
-	helper = osxkeychain
